@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0c12">
+  <meta name="description" content="Privacy policy for the Gemini Exporter Chrome extension. All conversation exports are processed locally; no developer-operated telemetry or upload service.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://otlfrosta.com/privacy">
+  <link rel="icon" href="/assets/icon.png" type="image/png" sizes="128x128">
+  <link rel="stylesheet" href="/styles.css?v=20261026-privacy">
+  <link rel="stylesheet" href="/privacy.css?v=2">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Extension Privacy Policy | Gemini Exporter">
+  <meta property="og:description" content="Gemini Exporter processes conversations locally, without developer-operated tracking or upload servers.">
+  <meta property="og:url" content="https://otlfrosta.com/privacy">
+  <title>Extension Privacy Policy | Gemini Exporter</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap" id="top">
+    <a class="brand" href="/" aria-label="OTLFrostA homepage">
+      <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+      <span>Your chats, your files<span class="brand-dot">.</span></span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a class="nav-github" href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+
+  <main id="main" class="policy-page wrap">
+    <div class="policy-heading">
+      <p class="kicker">PRIVACY &amp; TRANSPARENCY</p>
+      <h1>Extension Privacy Policy</h1>
+      <p class="policy-subtitle">Gemini Exporter · Chrome extension</p>
+      <p class="policy-updated">Last updated: October 26, 2026 · 最近更新：2026 年 10 月 26 日</p>
+      <nav class="policy-switch" aria-label="Choose privacy policy">
+        <a href="/privacy" aria-current="page">Extension privacy</a>
+        <a href="/website-privacy">Website privacy</a>
+      </nav>
+      <nav class="policy-language" aria-label="Policy language">
+        <a href="#english" lang="en">English</a>
+        <a href="#chinese" lang="zh-CN">简体中文</a>
+      </nav>
+    </div>
+
+    <article class="policy-content" id="english" lang="en" aria-labelledby="english-heading">
+      <h2 id="english-heading">English</h2>
+      <div class="policy-summary"><strong>Local only.</strong> Gemini Exporter processes conversation exports on your device and does not send your chats to developer-operated servers or analytics services. This page covers the extension. For this site's hosting and analytics, see the <a href="/website-privacy">Website Privacy Policy</a>.</div>
+
+      <section aria-labelledby="en-scope">
+        <h3 id="en-scope">1. Scope</h3>
+        <p>This policy describes the Gemini Exporter browser extension. The published Chrome Web Store extension currently supports Google Gemini; experimental ChatGPT, Claude, and Grok adapters in source builds do not imply that these integrations are publicly released. This policy does not describe our separate website, which has its own <a href="/website-privacy">privacy policy</a>.</p>
+      </section>
+
+      <section aria-labelledby="en-extension">
+        <h3 id="en-extension">2. Extension: local data processing</h3>
+        <p>The extension reads conversations and available attachments from services you have already signed in to, when you authorize access or request an export. It processes and exports this content on your device as Markdown, HTML, PDF, or JSON; multi-file downloads may be packaged as ZIP files. PDF compilation and ZIP creation run locally.</p>
+        <p><strong>We do not receive or collect your conversations, attachments, passwords, account credentials, session tokens, or export files.</strong> The extension does not send them to a server operated by us, and it contains no developer-operated analytics, advertising trackers, or telemetry. Requests to retrieve your conversations or attachments are made directly to the relevant source service using your existing browser session.</p>
+        <p>The extension stores settings, scan information, conversation metadata, and export records locally in browser extension storage. Files that you download or save to a folder remain on your device; you control their retention and deletion.</p>
+      </section>
+
+      <section aria-labelledby="en-permissions">
+        <h3 id="en-permissions">3. Extension permissions</h3>
+        <ul>
+          <li><strong>Storage and unlimitedStorage:</strong> local preferences, conversation index information, scan state, and export records.</li>
+          <li><strong>Scripting:</strong> activates scripts for supported source sites only when their access is granted.</li>
+          <li><strong>Optional site access:</strong> conversation and attachment domains for Gemini, or experimental ChatGPT, Claude, and Grok adapters when supported and explicitly authorized. No source platform needs mandatory host access at installation.</li>
+          <li><strong>Local Font Access:</strong> when requested, reads the names or metadata of installed fonts to select fonts for PDF rendering. Font files and conversation content are not uploaded.</li>
+        </ul>
+        <p>Connecting one platform does not authorize another. We do not store platform passwords or session tokens in the extension's conversation database.</p>
+      </section>
+
+      <section aria-labelledby="en-third-party">
+        <h3 id="en-third-party">4. Source services and local libraries</h3>
+        <p>To perform an export, the extension communicates directly with the authorized source platform, such as Google Gemini. Your activity with that platform is also subject to the platform's own privacy practices. The extension includes locally executed open-source libraries such as JSZip and Typst WebAssembly, and a bundled math font; these components do not require a developer-operated service to render or package your files.</p>
+      </section>
+
+      
+
+      <section aria-labelledby="en-sharing">
+        <h3 id="en-sharing">5. Sharing, retention, and control</h3>
+        <p>We do not sell your data, use extension data for advertising, or transfer extension data for unrelated purposes, credit decisions, or lending. Extension settings, conversation metadata and export records are stored locally; you can clear local scan and export records using extension controls, and you control any exported files.</p>
+        <p>We do not maintain a developer-hosted database of your conversations or require a developer account to use this extension. Your interactions with third-party source platforms remain subject to those services' privacy policies.</p>
+      </section>
+
+      <section aria-labelledby="en-contact">
+        <h3 id="en-contact">6. Open source, contact, and changes</h3>
+        <p>The extension's <a href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">source code</a> and more detailed <a href="https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/PRIVACY_POLICY.md" target="_blank" rel="noopener noreferrer">extension privacy documentation</a> are public. For questions, requests, or corrections, contact us through <a href="https://github.com/OTLFrostA/gemini-exporter/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a>. Please do not post private conversations or credentials in a public issue.</p>
+        <p>We may update this policy when features or data practices change. The date at the top indicates the latest published revision.</p>
+      </section>
+    </article>
+
+    <article class="policy-content policy-chinese" id="chinese" lang="zh-CN" aria-labelledby="chinese-heading">
+      <h2 id="chinese-heading">简体中文</h2>
+      <div class="policy-summary"><strong>所有对话导出均在本地完成。</strong> Gemini Exporter 不会将您的对话发送给开发者服务器或分析服务。本页仅说明扩展的隐私实践；官网托管与统计说明请参阅<a href="/website-privacy">网站隐私政策</a>。</div>
+
+      <section aria-labelledby="zh-scope">
+        <h3 id="zh-scope">1. 适用范围</h3>
+        <p>本政策说明 Gemini Exporter 浏览器扩展的数据处理方式。Chrome 网上应用店已发布版本目前支持 Google Gemini；源码中实验性的 ChatGPT、Claude 和 Grok 适配器不代表已经正式发布。官网适用独立的<a href="/website-privacy">网站隐私政策</a>。</p>
+      </section>
+
+      <section aria-labelledby="zh-extension">
+        <h3 id="zh-extension">2. 扩展：所有导出处理均在本地完成</h3>
+        <p>在您授权或主动执行导出时，扩展通过您现有的平台登录会话，从来源网站读取对话和可用附件，并在本机将其处理为 Markdown、HTML、PDF 或 JSON 文件。批量浏览器下载可打包为 ZIP。PDF 编译和 ZIP 打包均在本地执行。</p>
+        <p><strong>我们不接收或收集您的对话、附件、密码、账号凭据、会话令牌或导出文件。</strong> 扩展不会把这些内容发送到我们运营的服务器，也不包含开发者遥测、广告追踪或分析 SDK。读取来源对话和附件所需的网络请求仅直接发送至相应来源平台。</p>
+        <p>扩展设置、扫描信息、会话索引元数据和导出记录保存在浏览器扩展的本地存储中。下载或保存到文件夹的文件留在您的设备上，保留和删除由您控制。</p>
+      </section>
+
+      <section aria-labelledby="zh-permissions">
+        <h3 id="zh-permissions">3. 扩展权限</h3>
+        <ul>
+          <li><strong>storage / unlimitedStorage：</strong>本地保存偏好设置、会话索引、扫描状态和导出记录。</li>
+          <li><strong>scripting：</strong>仅为您已经授予访问权限的平台启用相应脚本。</li>
+          <li><strong>可选网站访问：</strong>按需授权 Gemini 等受支持平台及其附件域名；实验性 ChatGPT、Claude 和 Grok 适配器也仅在支持并获授权时访问对应网站。安装扩展时不强制授予任何来源平台的站点权限。</li>
+          <li><strong>本地字体访问：</strong>如需授权，扩展仅读取已安装字体的名称或元数据，以便本地 PDF 排版；不会上传字体文件或对话内容。</li>
+        </ul>
+        <p>授权一个平台不会自动授权其他平台。平台密码及会话令牌不会写入扩展的会话数据库。</p>
+      </section>
+
+      <section aria-labelledby="zh-third-party">
+        <h3 id="zh-third-party">4. 来源平台与本地依赖</h3>
+        <p>导出时扩展会直接访问您授权的来源平台，例如 Google Gemini；您在该平台的操作也受该平台隐私政策约束。扩展使用 JSZip、Typst WebAssembly 和内置数学字体等本地组件，不需要通过开发者服务器处理文件。</p>
+      </section>
+
+      
+
+      <section aria-labelledby="zh-sharing">
+        <h3 id="zh-sharing">5. 数据共享、保留与控制</h3>
+        <p>我们不出售用户数据，也不会将扩展数据用于广告、与核心功能无关的用途、信用评估或借贷。扩展设置、会话元数据和导出记录保存在本地；您可以通过扩展功能清理扫描和导出记录，并自行管理导出的文件。</p>
+        <p>我们不运营储存您对话内容的数据库，也不要求您为使用扩展注册开发者账户。您与来源平台之间的交互仍受相应平台隐私政策约束。</p>
+      </section>
+
+      <section aria-labelledby="zh-contact">
+        <h3 id="zh-contact">6. 开源、联系与政策更新</h3>
+        <p>扩展的<a href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">源代码</a>及更详细的<a href="https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/PRIVACY_POLICY.md" target="_blank" rel="noopener noreferrer">扩展隐私文档</a>均公开可查。如有疑问、相关请求或内容修正，请通过 <a href="https://github.com/OTLFrostA/gemini-exporter/issues" target="_blank" rel="noopener noreferrer">GitHub Issues</a> 联系。请勿在公开 Issue 中提交个人对话或账号凭据。</p>
+        <p>如果功能或数据处理方式发生变化，我们可能更新本政策；页面顶部的日期为最新发布修订日期。</p>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer wrap policy-footer">
+    <div class="footer-line">
+      <span class="footer-brand">Your chats, your files.</span>
+      <div class="footer-links">
+        <a href="/">Home</a>
+        <a href="/privacy" aria-current="page">Extension privacy</a>
+        <a href="/website-privacy">Website privacy</a>
+        <a href="https://github.com/OTLFrostA/gemini-exporter/issues" target="_blank" rel="noopener noreferrer">Support</a>
+      </div>
+    </div>
+    <p>Independent open-source project. Not affiliated with Google or other AI providers.</p>
+  </footer>
+</body>
+</html>
