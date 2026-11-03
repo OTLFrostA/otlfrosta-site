@@ -38,3 +38,7 @@ This tracks campaign-level Chrome Web Store visits and installs, not X post impr
 - Both pages have English and Simplified Chinese sections and a two-link policy switcher (plain links; no JavaScript tabs).
 - Keep extension claims aligned with [`OTLFrostA/gemini-exporter/docs/PRIVACY_POLICY.md`](https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/PRIVACY_POLICY.md) when the extension changes, and website analytics claims aligned with Cloudflare's live RUM/EU Lite configuration. The two static pages are independent snapshots rather than a new build-time dependency.
 - `public/privacy.css` styles both policy pages; it does not affect the homepage.
+
+## Release verification
+
+After a website change is pushed to `main`, confirm that Cloudflare Pages `otlfrosta-web` created a successful production deployment. Check `/`, `/privacy`, `/website-privacy`, `/robots.txt`, `/sitemap.xml`, campaign redirects such as `/x`, image and CSS assets, and the Cloudflare Web Analytics configuration. Keep the public URL and canonical metadata stable during hosting migrations.
