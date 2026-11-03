@@ -1,6 +1,6 @@
 # Product homepage — otlfrosta.com
 
-A static, privacy-preserving landing page on the permanent `website` branch. Keep it separate from the extension's `main` branch.
+A static, privacy-preserving landing page managed in this standalone repository (`main` branch). The browser extension lives in `OTLFrostA/gemini-exporter`.
 
 ## Messaging and layout
 
@@ -10,13 +10,13 @@ A static, privacy-preserving landing page on the permanent `website` branch. Kee
 
 Each benefit has one explanatory paragraph and one visual: a diagram, authentic workbench screenshot, or a Live Save conceptual diagram. The diagrams are illustrations, not screenshots. Do not make images clickable or show a test-account caption.
 
-Preserve a practical FAQ with real current button names and content about batch exports, slow or interrupted exports, Skip exported, large Gemini histories, Google Takeout ZIP import, local privacy, formats/attachments, and current platform support. FAQ wording should match the published extension and user guide in `main`.
+Preserve a practical FAQ with real current button names and content about batch exports, slow or interrupted exports, Skip exported, large Gemini histories, Google Takeout ZIP import, local privacy, formats/attachments, and current platform support. FAQ wording should match the published extension and user guide in `OTLFrostA/gemini-exporter` (`main`).
 
 ## Deploy via Cloudflare Pages
 
-- Project: `otlfrosta-site`
-- Repo: `OTLFrostA/gemini-exporter`
-- Production branch: `website`
+- Project: `otlfrosta-web`
+- Repo: `OTLFrostA/otlfrosta-site`
+- Production branch: `main`
 - Framework: None; build command: empty; output directory: `public`
 - Domain: `otlfrosta.com` (with `www` redirected to apex)
 
@@ -27,7 +27,7 @@ The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode e
 - `https://otlfrosta.com/x` responds with HTTP 302 to `https://otlfrosta.com/?utm_source=twitter&utm_medium=social&utm_campaign=x_bio` via `public/_redirects`.
 - The homepage CTA buttons read `utm_source`, `utm_medium`, and `utm_campaign` directly from the current URL and pass them through to the Chrome Web Store link. Values must be short ASCII campaign tokens. No cookies, local storage, or extra requests from **the UTM pass-through script itself**; Cloudflare's independently configured Web Analytics beacon is separate.
 - When there are no incoming UTM parameters, existing default `utm_source=otlfrosta.com&utm_medium=website&utm_campaign=hero|footer` remains unchanged.
-- For new source-specific entry points, define a new path rule in `public/_redirects`, no DNS record required. Do not change the extension `main` branch.
+- For new source-specific entry points, define a new path rule in `public/_redirects`, no DNS record required. Website changes belong here, not in the extension repository.
 
 This tracks campaign-level Chrome Web Store visits and installs, not X post impressions or cross-site user identities.
 
@@ -36,5 +36,5 @@ This tracks campaign-level Chrome Web Store visits and installs, not X post impr
 - **Chrome Web Store Privacy Policy URL:** `https://otlfrosta.com/privacy` (`public/privacy.html`) describes the browser extension's local-only processing, local storage, permissions and source-service requests. It is linked from the homepage's extension privacy FAQ.
 - **Website privacy:** `https://otlfrosta.com/website-privacy` (`public/website-privacy.html`) describes Cloudflare-hosted website analytics, infrastructure processing, and campaign URL pass-through. It is linked from the homepage footer.
 - Both pages have English and Simplified Chinese sections and a two-link policy switcher (plain links; no JavaScript tabs).
-- Keep extension claims aligned with `main/docs/PRIVACY_POLICY.md` when the extension changes, and website analytics claims aligned with Cloudflare's live RUM/EU Lite configuration. The two static pages are independent snapshots rather than a new build-time dependency.
+- Keep extension claims aligned with [`OTLFrostA/gemini-exporter/docs/PRIVACY_POLICY.md`](https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/PRIVACY_POLICY.md) when the extension changes, and website analytics claims aligned with Cloudflare's live RUM/EU Lite configuration. The two static pages are independent snapshots rather than a new build-time dependency.
 - `public/privacy.css` styles both policy pages; it does not affect the homepage.
