@@ -35,7 +35,7 @@ Page design is shared through `public/styles.css` and `public/guides.css`, with 
 - Framework: None; deployable output directory: `public` (Cloudflare build validation retained for Git previews; production upload is done by GitHub Actions)
 - PR preview branches: Cloudflare Git integration may create previews; GitHub Actions owns all production deployments, with Cloudflare native production auto-deploy disabled
 - Site URL: `https://otlfrosta-web.pages.dev`
-- Domain migration pending: `otlfrosta.com` and `www.otlfrosta.com` still point to the old `otlfrosta-site` Pages project until explicitly transferred
+- Live custom domains: `otlfrosta.com` and `www.otlfrosta.com` both belong to `otlfrosta-web`; Cloudflare DNS has proxied CNAMEs to `otlfrosta-web.pages.dev`, with an existing zone-level 301 from `www` to the apex.
 
 The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode excludes EU visitor metrics). The site uses no analytics cookies, local visitor IDs, or fingerprinting. `public/_headers` strictly allows only Cloudflare's beacon script and same-origin `/cdn-cgi/rum` reporting. No GA4 script, consent banner, external fonts, or extension telemetry. A tiny local first-party script (`public/utm.js`) copies inbound UTM values to both Chrome Web Store CTA URLs without network calls.
 
@@ -65,7 +65,7 @@ This tracks campaign-level Chrome Web Store visits and installs, not X post impr
 - Cloudflare's **native production Git auto-deployment is disabled** to avoid duplicate deployments. The Pages project remains Git-connected, and optional PR previews do not publish production releases.
 - Workflow deployment runs are serialized for the production project. No tag or manual upload is required for normal website updates; merges deploy automatically after CI.
 - GitHub branch protection requiring `Validate static site` is recommended, if supported by repository rules.
-- The website custom-domain transfer is a separate operation: `otlfrosta.com` and `www.otlfrosta.com` stay bound to the original Pages project until a validated cutover.
+- The domain migration was completed on November 4, 2026. The legacy Cloudflare Pages project `otlfrosta-site` was deleted, and the retired `website` branch was removed from `OTLFrostA/gemini-exporter`. Do not restore the old Pages deployment pipeline.
 
 ## Release verification
 
