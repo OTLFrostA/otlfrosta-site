@@ -83,7 +83,7 @@ h1 span{color:transparent;background:linear-gradient(100deg,#b5bcff,#e0c7ff 55%,
 .footer{padding-top:65px;padding-bottom:34px}
 .footer-line{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(191,193,222,.12);gap:20px;padding-bottom:25px}
 .footer-brand{font-size:13px;font-weight:650}
-.footer-links{display:flex;gap:24px;color:#b2b4c7;font-size:13px}
+.footer-links{display:flex;flex-wrap:wrap;row-gap:13px;gap:13px 24px;color:#b2b4c7;font-size:13px}
 .footer > p{margin-top:19px;color:#858ba3;font-size:11px;line-height:1.5}
 @media(max-width:900px){
   .feature-story{gap:30px}
