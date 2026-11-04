@@ -102,14 +102,19 @@ test("homepage demo uses only first-party assets, clear disclosure and accessibl
   assert.match(html, /data-demo-root data-ready="false"/);
   assert.match(html, /src="\/demo\.js\?v=/);
   assert.match(html, /href="\/demo\.css\?v=/);
-  assert.match(html, /name="demo-format"/);
+  assert.match(html, /data-demo-format/);
+  assert.match(html, /data-demo-search/);
+  assert.match(html, /data-demo-filter/);
+  assert.match(html, /data-demo-skip/);
+  assert.match(html, /data-demo-account/);
+  assert.match(html, /data-demo-theme-toggle/);
   assert.match(html, /data-demo-sync/);
   assert.match(html, /data-demo-select-all/);
   assert.match(html, /data-demo-export/);
   assert.match(html, /data-demo-result/);
   assert.match(html, /data-demo-download/);
   assert.match(html, /data-demo-status role="status" aria-live="polite"/);
-  assert.match(html, /Fictional conversations/);
+  assert.match(html, /fictional chats/i);
   assert.doesNotMatch(html, /class="hero-workflow"/);
 });
 
@@ -119,4 +124,30 @@ test("demo JavaScript uses no network requests, storage, or privileged extension
   assert.match(source, /textContent/);
   assert.match(source, /new Blob/);
   assert.match(source, /URL\.revokeObjectURL/);
+});
+
+test("demo follows the real Workbench panel order, labels and control groups", () => {
+  const html = readFileSync(new URL("../public/index.html", import.meta.url), "utf8");
+  const css = readFileSync(new URL("../public/demo.css", import.meta.url), "utf8");
+  const settings = html.indexOf('class="demo-settings-pane"');
+  const conversations = html.indexOf('class="demo-list-pane"');
+  assert.ok(settings > 0 && conversations > settings, "real extension has settings on the left and chats on the right");
+  for (const label of ["Format", "Skip exported", "Export to", "Browser download", "Save to local folder",
+    "Live Save", "Export selected", "Sync All", "Search title / ID...", "Not exported", "Exported"]) {
+    assert.ok(html.includes(label), "missing real Workbench control: " + label);
+  }
+  assert.match(css, /\.demo-workbench\s*\{[^}]*grid-template-columns:/);
+  assert.match(css, /\.hero-demo\[data-theme="dark"\]/);
+  assert.match(css, /@media\(max-width:760px\)/);
+  assert.match(html, /disabled><span><strong>Save to local folder/);
+});
+
+test("demo search, per-format export history and Skip exported are implemented as real interactions", () => {
+  const source = readFileSync(new URL("../public/demo.js", import.meta.url), "utf8");
+  assert.match(source, /data-demo-search/);
+  assert.match(source, /data-demo-filter/);
+  assert.match(source, /state\.exported\.has/);
+  assert.match(source, /state\.skip \?/);
+  assert.match(source, /addEventListener\("input"/);
+  assert.match(source, /addEventListener\("change"/);
 });
