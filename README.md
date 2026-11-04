@@ -64,6 +64,7 @@ This tracks campaign-level Chrome Web Store visits and installs, not X post impr
 - Deployment credentials must be stored only in GitHub **Actions repository secrets** as `CLOUDFLARE_API_TOKEN` (Cloudflare Pages Edit permission for the website account) and `CLOUDFLARE_ACCOUNT_ID`. Do not commit API tokens, and do not expose them in workflow output.
 - Cloudflare's **native production Git auto-deployment is disabled** to avoid duplicate deployments. The Pages project remains Git-connected, and optional PR previews do not publish production releases.
 - Workflow deployment runs are serialized for the production project. No tag or manual upload is required for normal website updates; merges deploy automatically after CI.
+- After adding or rotating repository secrets, start a **new** workflow run (for example, by merging a PR). GitHub reads repository secrets when the workflow is queued; re-running an older run can keep its old secret snapshot.
 - GitHub branch protection requiring `Validate static site` is recommended, if supported by repository rules.
 - The website custom-domain transfer is a separate operation: `otlfrosta.com` and `www.otlfrosta.com` stay bound to the original Pages project until a validated cutover.
 
