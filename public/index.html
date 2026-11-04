@@ -53,91 +53,76 @@
 
 
 
-      <section class="hero-demo" id="try-demo" aria-labelledby="demo-heading" data-demo-root data-ready="false">
-        <div class="demo-topbar">
-          <div class="demo-topbar-brand">
-            <span class="demo-brand-symbol" aria-hidden="true">✦</span>
-            <span>GEMINI EXPORTER</span>
-            <span class="demo-mode-label">INTERACTIVE DEMO</span>
-          </div>
-          <button class="demo-reset-button" type="button" data-demo-reset>↺ Reset</button>
-        </div>
-        <p class="demo-loading" data-demo-loading>Interactive demo requires JavaScript. This page does not connect to Gemini.</p>
+      <section class="hero-demo" id="try-demo" data-demo-root data-ready="false" data-theme="light" aria-label="Interactive replica of the Gemini Exporter Workbench">
+        <div class="demo-disclosure"><span class="demo-live-dot" aria-hidden="true"></span><strong>Try the actual Workbench flow</strong><span>Faithful UI replica · fictional chats · no Gemini connection</span><button data-demo-reset type="button">↺ Reset</button></div>
+        <p class="demo-loading" data-demo-loading>Loading Workbench preview. This demo uses only sample data.</p>
         <div class="demo-interface">
-          <div class="demo-grid">
-            <div class="demo-conversations-pane">
-              <div class="demo-pane-head">
-                <div>
-                  <p class="demo-overline">YOUR WORKBENCH · SAMPLE DATA</p>
-                  <h2 id="demo-heading">Conversations</h2>
-                  <p class="demo-subheading" data-demo-count>Click Sync All to load sample conversations</p>
-                </div>
-                <button class="demo-sync-button" type="button" data-demo-sync>↻ Sync All</button>
-              </div>
-              <div class="demo-selectbar">
-                <label class="demo-selectall"><input type="checkbox" data-demo-select-all disabled><span>Select all</span></label>
-                <span class="demo-selected-count" data-demo-selected-count>0 selected</span>
-              </div>
-              <div class="demo-chat-list" data-demo-chat-list aria-label="Fictional conversations available for the interactive demo"></div>
-            </div>
-            <div class="demo-export-pane">
-              <p class="demo-overline">EXPORT SETTINGS</p>
-              <h3 class="demo-export-title">Ready to keep your chats?</h3>
-              <p class="demo-export-description">Pick a format, then see how the files would look.</p>
-              <fieldset class="demo-formats">
-                <legend>File format</legend>
-                <div class="demo-format-grid">
-                  <label class="demo-format">
-                    <input type="radio" name="demo-format" value="markdown" checked>
-                    <span class="demo-format-symbol">MD</span>
-                    <span class="demo-format-name">Markdown</span>
-                  </label>
-                  <label class="demo-format">
-                    <input type="radio" name="demo-format" value="pdf">
-                    <span class="demo-format-symbol">PDF</span>
-                    <span class="demo-format-name">PDF</span>
-                  </label>
-                  <label class="demo-format">
-                    <input type="radio" name="demo-format" value="html">
-                    <span class="demo-format-symbol">&lt;/&gt;</span>
-                    <span class="demo-format-name">HTML</span>
-                  </label>
-                  <label class="demo-format">
-                    <input type="radio" name="demo-format" value="json">
-                    <span class="demo-format-symbol">{ }</span>
-                    <span class="demo-format-name">JSON</span>
-                  </label>
-                </div>
-              </fieldset>
-              <div class="demo-destination">
-                <span class="demo-destination-icon" aria-hidden="true">⇩</span>
-                <div><strong>Browser download</strong><small>Illustrative output · no real account or folder</small></div>
-              </div>
-              <button class="demo-export-button" type="button" data-demo-export disabled>Export selected ↗</button>
-              <p class="demo-export-hint">In the actual extension, Sync All finds chats and Export selected creates your files.</p>
+          <div class="demo-app-header">
+            <div class="demo-app-brand"><span>Gemini Exporter</span><span class="demo-version">Demo</span></div>
+            <div class="demo-app-tools">
+              <button class="demo-theme-button" data-demo-theme-toggle type="button" aria-label="Switch demo to dark theme" title="Toggle workbench appearance">☾</button>
+              <span class="demo-header-pill" title="Available in the installed extension">Site access</span>
+              <span class="demo-header-pill demo-tour" title="Available in the installed extension">💡 Tour Guide</span>
+              <span class="demo-header-pill demo-lang">EN</span>
             </div>
           </div>
-          <div class="demo-result" data-demo-result hidden>
-            <div class="demo-result-head">
-              <div>
-                <span class="demo-result-kicker">EXAMPLE EXPORT</span>
-                <h3>Here's what you'd get.</h3>
-                <p data-demo-result-summary>Sample files ready</p>
+          <div class="demo-workbench">
+            <aside class="demo-settings-pane" aria-label="Export settings, matching the extension Workbench">
+              <div class="demo-preferences">
+                <label class="demo-format-row"><span>Format</span>
+                  <select data-demo-format aria-label="Export format">
+                    <option value="markdown">Markdown (.md)</option>
+                    <option value="html">HTML (.html)</option>
+                    <option value="pdf">PDF (.pdf)</option>
+                    <option value="json">JSON (.json)</option>
+                  </select>
+                </label>
+                <label class="demo-skip-row"><input type="checkbox" data-demo-skip checked><span>Skip exported</span></label>
               </div>
-              <span class="demo-result-check" aria-hidden="true">✓</span>
-            </div>
-            <div class="demo-output-files" data-demo-result-list></div>
-            <div class="demo-result-bottom">
-              <p data-demo-result-note>Fictional example content only.</p>
-              <button class="demo-download-button" type="button" data-demo-download>Download example ZIP ↓</button>
+              <div class="demo-export-destination">
+                <h2>Export to</h2>
+                <div class="demo-delivery-card is-active">
+                  <label class="demo-delivery-choice"><input type="radio" name="demo-delivery" checked value="browserDownload"><span><strong>Browser download</strong><small>Save using your browser</small></span></label>
+                </div>
+                <div class="demo-delivery-card demo-delivery-disabled">
+                  <label class="demo-delivery-choice" title="Folder access is available in the installed extension"><input type="radio" name="demo-delivery" value="folderWriter" disabled><span><strong>Save to local folder</strong><small>Write directly to a chosen folder</small></span></label>
+                  <div class="demo-folder-tools">
+                    <div class="demo-folder-line"><div><strong>Folder</strong><small>No folder selected</small><small>Not authorized</small></div><button type="button" disabled>Choose folder</button></div>
+                    <div class="demo-live-save"><div><strong>Live Save</strong><small>Automatically save updates to this folder</small></div><input type="checkbox" disabled aria-label="Live Save is available in the installed extension"></div>
+                  </div>
+                </div>
+              </div>
+              <button data-demo-export class="demo-export-button" type="button" disabled>Export selected</button>
+              <p class="demo-settings-note">Folder access and Live Save require the installed Chrome extension.</p>
+              <div class="demo-help-row"><span>☏</span> Got questions or suggestions? <span aria-hidden="true">↗</span></div>
+            </aside>
+            <div class="demo-list-pane">
+              <div class="demo-conversation-toolbar">
+                <button data-demo-sync class="demo-sync-button" type="button">Sync All</button>
+                <select data-demo-account aria-label="Sample account" disabled><option>Gemini · Demo account</option></select>
+                <label class="demo-search-box"><span aria-hidden="true">⌕</span><input data-demo-search type="search" placeholder="Search title / ID..." aria-label="Search sample conversation titles" disabled></label>
+                <select data-demo-filter aria-label="Filter sample conversations" disabled><option value="all">All</option><option value="no_record">Not exported</option><option value="has_record">Exported</option></select>
+                <span class="demo-more" aria-hidden="true">···</span>
+              </div>
+              <div class="demo-selection-row">
+                <input data-demo-select-all type="checkbox" aria-label="Select all visible sample conversations" disabled>
+                <span data-demo-selected-count>0 of 0 selected</span>
+              </div>
+              <div data-demo-chat-list class="demo-chat-list" aria-label="Example Gemini conversations"></div>
+              <span data-demo-count class="demo-a11y-count" aria-live="polite">No sample conversations synced</span>
             </div>
           </div>
+          <div class="demo-output-panel" data-demo-result hidden>
+            <div class="demo-output-header">
+              <div><span class="demo-output-eyebrow">LOCAL EXPORT PREVIEW · FICTIONAL FILES</span><h2>Here are the files from your selection</h2><p data-demo-result-summary>Example files</p></div>
+              <span class="demo-output-check" aria-hidden="true">✓</span>
+            </div>
+            <div data-demo-result-list class="demo-output-files"></div>
+            <div class="demo-output-footer"><p data-demo-result-note>These are fictional conversations, not actual Gemini exports.</p><button type="button" data-demo-download>Download example ZIP ↓</button></div>
+          </div>
+          <div class="demo-footer"><span data-demo-status role="status" aria-live="polite">Click Sync All to load four example conversations.</span><span class="demo-private">Interactive demonstration · no account access, no upload</span></div>
         </div>
-        <div class="demo-footbar">
-          <span data-demo-status role="status" aria-live="polite">Click Sync All to get started.</span>
-          <span class="demo-privacy-caption">Fictional conversations · All interactions stay in this page</span>
-        </div>
-        <noscript><p class="demo-noscript">You can still use the installation link above without enabling JavaScript.</p></noscript>
+        <noscript><p class="demo-noscript">The interactive demo requires JavaScript. The extension can still be installed using the button above.</p></noscript>
       </section>
 
     </section>
