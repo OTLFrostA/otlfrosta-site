@@ -61,7 +61,7 @@ This tracks campaign-level Chrome Web Store visits and installs, not X post impr
 - Source of truth: `OTLFrostA/otlfrosta-site` `main`.
 - `.github/workflows/site-ci.yml` runs `Validate static site` for every PR and push to `main`. It validates syntax, internal links/assets, anchors, canonical URLs, sitemap, privacy policies, redirects and security headers.
 - On pushes to `main` **after validation succeeds**, the same GitHub Actions workflow runs `Deploy to Cloudflare Pages` using `cloudflare/wrangler-action@v4` and `pages deploy public --project-name=otlfrosta-web --branch=main`.
-- Deployment credentials must be stored only in GitHub **Actions repository secrets** as `CLOUDFLARE_API_TOKEN` (Cloudflare Pages Edit permission for the website account) and `CLOUDFLARE_ACCOUNT_ID`. Do not commit API tokens, and do not expose them in workflow output.
+- The deploy job uses GitHub Actions **environment `production`**. Store `CLOUDFLARE_API_TOKEN` (Cloudflare Pages Edit permission for the website account) and `CLOUDFLARE_ACCOUNT_ID` as that environment's secrets. Only the deploy job receives these values; PR validation does not. Do not commit API tokens or expose them in logs.
 - Cloudflare's **native production Git auto-deployment is disabled** to avoid duplicate deployments. The Pages project remains Git-connected, and optional PR previews do not publish production releases.
 - Workflow deployment runs are serialized for the production project. No tag or manual upload is required for normal website updates; merges deploy automatically after CI.
 - GitHub branch protection requiring `Validate static site` is recommended, if supported by repository rules.
