@@ -12,6 +12,21 @@ Each benefit has one explanatory paragraph and one visual: a diagram, authentic 
 
 Preserve a practical FAQ with real current button names and content about batch exports, slow or interrupted exports, Skip exported, large Gemini histories, Google Takeout ZIP import, local privacy, formats/attachments, and current platform support. FAQ wording should match the published extension and user guide in `OTLFrostA/gemini-exporter` (`main`).
 
+## Search-intent guides and homepage design
+
+The homepage is a direct entry point for Google Gemini users, not a generic multi-platform product claim. It presents the three-step `Sync All → choose conversations → Export selected` flow, a clearly labeled illustrative output tree, an authentic Workbench screenshot, and four task-specific guides:
+
+| Clean URL | Static source | Search intent |
+| --- | --- | --- |
+| `/export-all-gemini-chats` | `public/export-all-gemini-chats.html` | Bulk export all chats, skip completed exports |
+| `/import-google-takeout-gemini` | `public/import-google-takeout-gemini.html` | Import official Google Takeout ZIP, convert archives |
+| `/automatic-gemini-chat-backup` | `public/automatic-gemini-chat-backup.html` | Set up local Markdown Live Save |
+| `/export-gemini-chat-formats` | `public/export-gemini-chat-formats.html` | Compare and export PDF, Markdown, HTML, JSON |
+
+These are useful how-to pages, **not claims of support for unshipped features**. Published Chrome Web Store support is Gemini; other platform integrations are experimental. Live Save writes Markdown only, and only during active browser use with local-folder permissions. Attachment availability is conditional; scanning alone does not create a backup. Do not copy Extry's product claims (e.g. independent archive index, Word/Excel export, server typeset PDF) into Gemini Exporter without implementation and verification.
+
+Page design is shared through `public/styles.css` and `public/guides.css`, with no external libraries or fonts. Each page must keep a unique title, meta description, self canonical URL, OG metadata, semantic headings, relevant Workbench terminology, internal links, privacy claims and honest limitations. When adding a page, link it from the homepage/other guides and add it to `public/sitemap.xml`. Keep `public/_headers`, privacy pages and `public/utm.js` behavior intact. Each guide's Chrome Web Store CTA carries a page-specific default `utm_campaign` while preserving validated inbound campaign parameters.
+
 ## Deploy via Cloudflare Pages
 
 - Project: `otlfrosta-web`
