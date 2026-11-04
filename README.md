@@ -17,8 +17,10 @@ Preserve a practical FAQ with real current button names and content about batch 
 - Project: `otlfrosta-web`
 - Repo: `OTLFrostA/otlfrosta-site`
 - Production branch: `main`
-- Framework: None; build command: empty; output directory: `public`
-- Domain: `otlfrosta.com` (with `www` redirected to apex)
+- Framework: None; build command: `node scripts/check-site.mjs`; output directory: `public`
+- Preview branches: enabled for PR previews; production branch commits deploy automatically
+- Site URL: `https://otlfrosta-web.pages.dev`
+- Domain migration pending: `otlfrosta.com` and `www.otlfrosta.com` still point to the old `otlfrosta-site` Pages project until explicitly transferred
 
 The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode excludes EU visitor metrics). The site uses no analytics cookies, local visitor IDs, or fingerprinting. `public/_headers` strictly allows only Cloudflare's beacon script and same-origin `/cdn-cgi/rum` reporting. No GA4 script, consent banner, external fonts, or extension telemetry. A tiny local first-party script (`public/utm.js`) copies inbound UTM values to both Chrome Web Store CTA URLs without network calls.
 
@@ -38,6 +40,15 @@ This tracks campaign-level Chrome Web Store visits and installs, not X post impr
 - Both pages have English and Simplified Chinese sections and a two-link policy switcher (plain links; no JavaScript tabs).
 - Keep extension claims aligned with [`OTLFrostA/gemini-exporter/docs/PRIVACY_POLICY.md`](https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/PRIVACY_POLICY.md) when the extension changes, and website analytics claims aligned with Cloudflare's live RUM/EU Lite configuration. The two static pages are independent snapshots rather than a new build-time dependency.
 - `public/privacy.css` styles both policy pages; it does not affect the homepage.
+
+## CI/CD (merge to deploy)
+
+1. Open a PR against `main`. GitHub Actions runs `.github/workflows/site-ci.yml` (syntax check and `node scripts/check-site.mjs`), and Cloudflare Pages generates a preview deployment.
+2. Check that the CI job and Cloudflare preview are successful. The validator checks internal links/assets, page anchors, canonical URLs, sitemap, robots.txt, redirects, privacy pages and security headers, with no dependencies or network requests.
+3. Merge the PR to `main`. Cloudflare Pages' existing GitHub integration automatically builds and publishes `public/` to `otlfrosta-web`; no GitHub deploy Action, Cloudflare API token, or release tag is needed.
+4. The same validation script is configured as the Cloudflare Pages **build command**, so a failing validation prevents production deployment even if someone bypasses the PR CI. In GitHub Settings, requiring the `Validate static site` check on `main` is recommended when branch rules are available.
+
+Keep the Cloudflare project's `production_branch=main`, `production_deployments_enabled=true`, and output directory `public`. Do not create another deployment workflow for the same branch. The public custom domains do not switch automatically: domain cutover from the old Pages project is a separate operation.
 
 ## Release verification
 
