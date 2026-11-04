@@ -27,6 +27,19 @@ These are useful how-to pages, **not claims of support for unshipped features**.
 
 Page design is shared through `public/styles.css` and `public/guides.css`, with no external libraries or fonts. Each page must keep a unique title, meta description, self canonical URL, OG metadata, semantic headings, relevant Workbench terminology, internal links, privacy claims and honest limitations. When adding a page, link it from the homepage/other guides and add it to `public/sitemap.xml`. Keep `public/_headers`, privacy pages and `public/utm.js` behavior intact. Each guide's Chrome Web Store CTA carries a page-specific default `utm_campaign` while preserving validated inbound campaign parameters.
 
+## Homepage interactive demo (sample data only)
+
+The hero includes a **small, interactive Workbench tour** in place of its old static illustrated Sync → Select → Export diagram. Visitors can click **Sync All** to populate four fictional example conversations, toggle individual or all chats, choose Markdown, PDF, HTML or JSON, and click **Export selected** to preview the resulting filenames.
+
+- `public/demo.js` wires the UI with accessible native buttons/checkboxes/radio controls, stateful selection, live status and a Reset control.
+- `public/demo-data.mjs` contains only fictional sample content and pure local renderers for Markdown/HTML/JSON. The simple, dependency-free ZIP writer packages each selected fictional chat into its own downloadable example file. The sample ZIP is not the actual extension export format/schema, and cannot connect to Gemini.
+- PDF in the demo is **filename preview only**; no PDF download is advertised. Actual PDF generation remains in the Chrome extension.
+- `public/demo.css` owns demo-only responsive styles and visible keyboard focus. The existing `styles.css`, marketing pages, SVGs, privacy pages, CSP and UTM forwarding stay separate.
+- The demo uses no Chrome extension APIs, login, network requests, remote scripts, cookies, telemetry or browser storage. It only downloads a ZIP after the user clicks the corresponding button.
+- `node --test scripts/test-demo.mjs` checks sample ordering, formats, ZIP structure, CRC, invalid input and privacy boundaries. PR CI also checks the JavaScript modules parse successfully.
+
+The public homepage is the only page with this demo. Keep all sample previews clearly labeled and do not equate clicking the demo's Sync All with discovering real signed-in Gemini history.
+
 ## Deploy via Cloudflare Pages
 
 - Project: `otlfrosta-web`
