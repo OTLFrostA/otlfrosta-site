@@ -10,7 +10,9 @@
   <link rel="canonical" href="https://otlfrosta.com/">
   <link rel="icon" href="/assets/icon.png" type="image/png" sizes="128x128">
   <link rel="stylesheet" href="/styles.css?v=20261104-seo-guides">
+  <link rel="stylesheet" href="/demo.css?v=20261104-v1">
   <script src="/utm.js?v=1" defer></script>
+  <script type="module" src="/demo.js?v=20261104-v1"></script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Gemini Exporter — Free local Gemini chat backup">
   <meta property="og:site_name" content="Gemini Exporter">
@@ -45,30 +47,99 @@
           <svg class="chrome-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="4.6" fill="#5872e0"/><path d="M11.2 2a10 10 0 0 1 9.5 5.5h-9l-2 3.3-4.8-7.1A9.9 9.9 0 0 1 11.2 2Z" fill="#f1c34a"/><path d="M2.4 9.3a10 10 0 0 0 8.6 12.6l4.4-7.6h-4.2L6.8 6.9 2.4 9.3Z" fill="#42a777"/><path d="M20.7 7.5a10 10 0 0 1-8.1 14.4l4.1-7.2-2.2-3.7 1.9-3.5h4.3Z" fill="#e26864"/></svg>
           Add to Chrome <span aria-hidden="true">↗</span>
         </a>
-        <a class="button button-outline" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
+        <a class="button button-outline" href="#try-demo">Try interactive demo <span aria-hidden="true">↓</span></a>
       </div>
       <p class="availability"><span class="available-dot" aria-hidden="true"></span> Gemini available now <span class="availability-divider" aria-hidden="true">/</span> ChatGPT, Claude &amp; Grok are experimental and not yet released in Chrome Web Store</p>
 
 
-      <div class="hero-workflow" aria-label="Illustration of the Gemini bulk export process">
-        <div class="workflow-topline"><span class="workflow-mini-dot" aria-hidden="true"></span> GEMINI EXPORTER <span class="workflow-top-tag">HOW IT WORKS · ILLUSTRATION</span></div>
-        <div class="workflow-main">
-          <div class="workflow-steps">
-            <div class="workflow-step"><span class="workflow-number">01</span><span><strong>Sync All</strong><small>Discover accessible chats</small></span></div>
-            <span class="workflow-arrow" aria-hidden="true">→</span>
-            <div class="workflow-step"><span class="workflow-number">02</span><span><strong>Select</strong><small>Choose conversations</small></span></div>
-            <span class="workflow-arrow" aria-hidden="true">→</span>
-            <div class="workflow-step"><span class="workflow-number">03</span><span><strong>Export selected</strong><small>Save local files</small></span></div>
+
+      <section class="hero-demo" id="try-demo" aria-labelledby="demo-heading" data-demo-root data-ready="false">
+        <div class="demo-topbar">
+          <div class="demo-topbar-brand">
+            <span class="demo-brand-symbol" aria-hidden="true">✦</span>
+            <span>GEMINI EXPORTER</span>
+            <span class="demo-mode-label">INTERACTIVE DEMO</span>
           </div>
-          <div class="workflow-result">
-            <div class="workflow-file-head"><span class="workflow-folder-mark" aria-hidden="true">▣</span><span>gemini-backup/</span><span class="workflow-file-meta">Illustrative Markdown export</span></div>
-            <div class="workflow-file-row"><span aria-hidden="true">↳</span> research-notes.md <span>Markdown</span></div>
-            <div class="workflow-file-row"><span aria-hidden="true">↳</span> project-ideas.md <span>Markdown</span></div>
-            <div class="workflow-file-row"><span aria-hidden="true">↳</span> trip-planning.md <span>Markdown</span></div>
+          <button class="demo-reset-button" type="button" data-demo-reset>↺ Reset</button>
+        </div>
+        <p class="demo-loading" data-demo-loading>Interactive demo requires JavaScript. This page does not connect to Gemini.</p>
+        <div class="demo-interface">
+          <div class="demo-grid">
+            <div class="demo-conversations-pane">
+              <div class="demo-pane-head">
+                <div>
+                  <p class="demo-overline">YOUR WORKBENCH · SAMPLE DATA</p>
+                  <h2 id="demo-heading">Conversations</h2>
+                  <p class="demo-subheading" data-demo-count>Click Sync All to load sample conversations</p>
+                </div>
+                <button class="demo-sync-button" type="button" data-demo-sync>↻ Sync All</button>
+              </div>
+              <div class="demo-selectbar">
+                <label class="demo-selectall"><input type="checkbox" data-demo-select-all disabled><span>Select all</span></label>
+                <span class="demo-selected-count" data-demo-selected-count>0 selected</span>
+              </div>
+              <div class="demo-chat-list" data-demo-chat-list aria-label="Fictional conversations available for the interactive demo"></div>
+            </div>
+            <div class="demo-export-pane">
+              <p class="demo-overline">EXPORT SETTINGS</p>
+              <h3 class="demo-export-title">Ready to keep your chats?</h3>
+              <p class="demo-export-description">Pick a format, then see how the files would look.</p>
+              <fieldset class="demo-formats">
+                <legend>File format</legend>
+                <div class="demo-format-grid">
+                  <label class="demo-format">
+                    <input type="radio" name="demo-format" value="markdown" checked>
+                    <span class="demo-format-symbol">MD</span>
+                    <span class="demo-format-name">Markdown</span>
+                  </label>
+                  <label class="demo-format">
+                    <input type="radio" name="demo-format" value="pdf">
+                    <span class="demo-format-symbol">PDF</span>
+                    <span class="demo-format-name">PDF</span>
+                  </label>
+                  <label class="demo-format">
+                    <input type="radio" name="demo-format" value="html">
+                    <span class="demo-format-symbol">&lt;/&gt;</span>
+                    <span class="demo-format-name">HTML</span>
+                  </label>
+                  <label class="demo-format">
+                    <input type="radio" name="demo-format" value="json">
+                    <span class="demo-format-symbol">{ }</span>
+                    <span class="demo-format-name">JSON</span>
+                  </label>
+                </div>
+              </fieldset>
+              <div class="demo-destination">
+                <span class="demo-destination-icon" aria-hidden="true">⇩</span>
+                <div><strong>Browser download</strong><small>Illustrative output · no real account or folder</small></div>
+              </div>
+              <button class="demo-export-button" type="button" data-demo-export disabled>Export selected ↗</button>
+              <p class="demo-export-hint">In the actual extension, Sync All finds chats and Export selected creates your files.</p>
+            </div>
+          </div>
+          <div class="demo-result" data-demo-result hidden>
+            <div class="demo-result-head">
+              <div>
+                <span class="demo-result-kicker">EXAMPLE EXPORT</span>
+                <h3>Here's what you'd get.</h3>
+                <p data-demo-result-summary>Sample files ready</p>
+              </div>
+              <span class="demo-result-check" aria-hidden="true">✓</span>
+            </div>
+            <div class="demo-output-files" data-demo-result-list></div>
+            <div class="demo-result-bottom">
+              <p data-demo-result-note>Fictional example content only.</p>
+              <button class="demo-download-button" type="button" data-demo-download>Download example ZIP ↓</button>
+            </div>
           </div>
         </div>
-        <p class="workflow-caption">Choose your format and destination. Sample file names are illustrations, not a real user archive.</p>
-      </div>
+        <div class="demo-footbar">
+          <span data-demo-status role="status" aria-live="polite">Click Sync All to get started.</span>
+          <span class="demo-privacy-caption">Fictional conversations · All interactions stay in this page</span>
+        </div>
+        <noscript><p class="demo-noscript">You can still use the installation link above without enabling JavaScript.</p></noscript>
+      </section>
+
     </section>
 
     <div class="trust-row wrap" aria-label="Product essentials">
