@@ -5,30 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
   <meta name="theme-color" content="#0b0c12">
-  <meta name="description" content="Export all Google Gemini chat history locally. Free, open-source batch backup to PDF, Markdown, HTML or JSON. Auto-save new replies and import Google Takeout ZIP files.">
+  <meta name="description" content="Export all Gemini chats with a free, open-source Chrome extension. Save Google Gemini conversations to Markdown, PDF, HTML or JSON, import Takeout ZIP files and enable local Markdown backups.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://otlfrosta.com/">
   <link rel="icon" href="/assets/icon.png" type="image/png" sizes="128x128">
-  <link rel="stylesheet" href="/styles.css?v=20261025-visual-stories-faq">
+  <link rel="stylesheet" href="/styles.css?v=20261104-seo-guides">
   <script src="/utm.js?v=1" defer></script>
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Your AI conversations. Yours to keep.">
-  <meta property="og:site_name" content="Your AI conversations. Yours to keep.">
-  <meta property="og:description" content="Export all Gemini conversations, save local files, and automatically back up new replies. Free and open source.">
+  <meta property="og:title" content="Gemini Exporter — Free local Gemini chat backup">
+  <meta property="og:site_name" content="Gemini Exporter">
+  <meta property="og:description" content="Bulk-export Gemini conversations, import Google Takeout archives, and save local Markdown, PDF, HTML or JSON files. Free and open source.">
   <meta property="og:url" content="https://otlfrosta.com/">
   <meta property="og:image" content="https://otlfrosta.com/assets/workbench.png">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Export All Gemini Chats &amp; Auto-Save Replies | Free Local Backup</title>
+  <title>Gemini Exporter — Free Local Gemini Chat Backup &amp; Export</title>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header wrap" id="top">
-    <a class="brand" href="#top" aria-label="Back to top">
+    <a class="brand" href="/" aria-label="Gemini Exporter homepage">
       <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
-      <span>Your chats, your files<span class="brand-dot">.</span></span>
+      <span>Gemini Exporter<span class="brand-dot">.</span></span>
     </a>
     <nav class="nav" aria-label="Main navigation">
-      <a class="nav-features" href="#features">Features</a><a class="nav-faq" href="#faq">FAQ</a>
+      <a class="nav-features" href="#use-cases">Guides</a><a class="nav-how" href="#how-it-works">How it works</a><a class="nav-faq" href="#faq">FAQ</a>
       <a class="nav-github" href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
   </header>
@@ -36,26 +36,105 @@
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-badge"><span class="status-dot" aria-hidden="true"></span> FREE <span class="badge-sep">·</span> OPEN SOURCE <span class="badge-sep">·</span> LOCAL ONLY</div>
-      <h1 id="hero-title">Your AI conversations.<br><span>Yours to keep.</span></h1>
-      <p class="hero-subtitle">Export, preserve, and own your AI conversations.</p>
-      <p class="hero-detail">Bulk-export your entire history. Automatically save new replies. All on your device.</p>
+      <p class="hero-eyebrow">GEMINI CHAT EXPORT &amp; LOCAL BACKUP</p>
+      <h1 id="hero-title">Back up your Gemini chats.<br><span>Keep them on your device.</span></h1>
+      <p class="hero-subtitle">One Chrome extension for bulk exports, Google Takeout imports, and local Markdown auto-backups.</p>
+      <p class="hero-detail">Save accessible conversations as PDF, Markdown, HTML, or JSON. Your files are created on your device, not uploaded to a server we operate.</p>
       <div class="hero-actions">
         <a data-store-cta class="button button-primary" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=hero" target="_blank" rel="noopener noreferrer">
           <svg class="chrome-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="4.6" fill="#5872e0"/><path d="M11.2 2a10 10 0 0 1 9.5 5.5h-9l-2 3.3-4.8-7.1A9.9 9.9 0 0 1 11.2 2Z" fill="#f1c34a"/><path d="M2.4 9.3a10 10 0 0 0 8.6 12.6l4.4-7.6h-4.2L6.8 6.9 2.4 9.3Z" fill="#42a777"/><path d="M20.7 7.5a10 10 0 0 1-8.1 14.4l4.1-7.2-2.2-3.7 1.9-3.5h4.3Z" fill="#e26864"/></svg>
           Add to Chrome <span aria-hidden="true">↗</span>
         </a>
-        <a class="button button-outline" href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+        <a class="button button-outline" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
       </div>
-      <p class="availability"><span class="available-dot" aria-hidden="true"></span> Available for Gemini <span class="availability-divider" aria-hidden="true">/</span> ChatGPT, Claude &amp; Grok in development</p>
+      <p class="availability"><span class="available-dot" aria-hidden="true"></span> Gemini available now <span class="availability-divider" aria-hidden="true">/</span> ChatGPT, Claude &amp; Grok are experimental and not yet released in Chrome Web Store</p>
 
-      </section>
+
+      <div class="hero-workflow" aria-label="Illustration of the Gemini bulk export process">
+        <div class="workflow-topline"><span class="workflow-mini-dot" aria-hidden="true"></span> GEMINI EXPORTER <span class="workflow-top-tag">HOW IT WORKS · ILLUSTRATION</span></div>
+        <div class="workflow-main">
+          <div class="workflow-steps">
+            <div class="workflow-step"><span class="workflow-number">01</span><span><strong>Sync All</strong><small>Discover accessible chats</small></span></div>
+            <span class="workflow-arrow" aria-hidden="true">→</span>
+            <div class="workflow-step"><span class="workflow-number">02</span><span><strong>Select</strong><small>Choose conversations</small></span></div>
+            <span class="workflow-arrow" aria-hidden="true">→</span>
+            <div class="workflow-step"><span class="workflow-number">03</span><span><strong>Export selected</strong><small>Save local files</small></span></div>
+          </div>
+          <div class="workflow-result">
+            <div class="workflow-file-head"><span class="workflow-folder-mark" aria-hidden="true">▣</span><span>gemini-backup/</span><span class="workflow-file-meta">Illustrative Markdown export</span></div>
+            <div class="workflow-file-row"><span aria-hidden="true">↳</span> research-notes.md <span>Markdown</span></div>
+            <div class="workflow-file-row"><span aria-hidden="true">↳</span> project-ideas.md <span>Markdown</span></div>
+            <div class="workflow-file-row"><span aria-hidden="true">↳</span> trip-planning.md <span>Markdown</span></div>
+          </div>
+        </div>
+        <p class="workflow-caption">Choose your format and destination. Sample file names are illustrations, not a real user archive.</p>
+      </div>
+    </section>
+
+    <div class="trust-row wrap" aria-label="Product essentials">
+      <span><strong>Free to use</strong><small>No subscription</small></span>
+      <span><strong>Local processing</strong><small>No developer upload</small></span>
+      <span><strong>Open source</strong><small>Inspect the code</small></span>
+      <span><strong>No extension telemetry</strong><small>Private by design</small></span>
+    </div>
+
+    <section class="use-cases wrap" id="use-cases" aria-labelledby="use-cases-title">
+      <div class="section-heading">
+        <p class="kicker">ONE TOOL · FOUR WAYS TO SAVE YOUR CHATS</p>
+        <h2 id="use-cases-title">What do you need to export?</h2>
+        <p>Choose the job you came here to do. Each guide shows the real Workbench steps, what files you get, and the limits worth knowing.</p>
+      </div>
+      <div class="usecase-grid">
+        <a class="usecase-card" href="/export-all-gemini-chats">
+          <span class="usecase-number">01 / BULK EXPORT</span>
+          <span class="usecase-icon" aria-hidden="true">▦</span>
+          <h3>Export every Gemini chat</h3>
+          <p>Save multiple conversations at once instead of opening and downloading them one by one.</p>
+          <span class="usecase-link">Bulk export guide <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="usecase-card" href="/import-google-takeout-gemini">
+          <span class="usecase-number">02 / EXISTING ARCHIVES</span>
+          <span class="usecase-icon" aria-hidden="true">⇩</span>
+          <h3>Open a Google Takeout ZIP</h3>
+          <p>Turn an original Gemini Takeout archive into individual readable conversation files.</p>
+          <span class="usecase-link">Takeout import guide <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="usecase-card" href="/automatic-gemini-chat-backup">
+          <span class="usecase-number">03 / CONTINUOUS BACKUP</span>
+          <span class="usecase-icon" aria-hidden="true">↻</span>
+          <h3>Automatically save new replies</h3>
+          <p>Keep a local Markdown copy updated when Gemini finishes responding during active browsing.</p>
+          <span class="usecase-link">Live Save guide <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="usecase-card" href="/export-gemini-chat-formats">
+          <span class="usecase-number">04 / FILE FORMATS</span>
+          <span class="usecase-icon" aria-hidden="true">≡</span>
+          <h3>PDF, Markdown, HTML or JSON</h3>
+          <p>Choose readable documents or structured files that remain useful outside Gemini.</p>
+          <span class="usecase-link">Compare formats <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="quickstart wrap" id="how-it-works" aria-labelledby="quickstart-title">
+      <div class="section-heading">
+        <p class="kicker">THREE STEPS TO YOUR FIRST BACKUP</p>
+        <h2 id="quickstart-title">From chats to files, without the busywork.</h2>
+      </div>
+      <ol class="quickstart-list">
+        <li><span class="quickstart-num">1</span><div><h3>Connect Gemini and sync</h3><p>Install the extension, authorize Gemini under <strong>Site access</strong>, sign in to your account, then click <strong>Sync All</strong> in the Workbench.</p></div></li>
+        <li><span class="quickstart-num">2</span><div><h3>Choose chats and a format</h3><p>Select conversations or the entire accessible list. Choose PDF, Markdown, HTML, or JSON and an output destination.</p></div></li>
+        <li><span class="quickstart-num">3</span><div><h3>Export selected</h3><p>Save with <strong>Browser download</strong> or <strong>Save to local folder</strong>. For very large histories, import an official Google Takeout ZIP to supplement the scan.</p></div></li>
+      </ol>
+      <p class="quickstart-note">Scanning finds chats. <strong>Export selected</strong> creates files. Processing stays in your browser.</p>
+    </section>
 
     <section class="features wrap" id="features" aria-label="Three reasons to back up your AI conversations">
       <article class="feature-story" aria-labelledby="feature-local-title">
         <div class="story-copy">
           <p class="story-index"><span>01</span> FREE. PRIVATE. LOCAL.</p>
           <h2 id="feature-local-title">100% free.<br><span>100% local.</span></h2>
-          <p>No subscription, no API key, no tracking. Gemini Exporter processes your conversations inside your browser and saves the results directly to your device — never to a server we operate. It’s open source, so you can inspect exactly how it works.</p>
+          <p>No subscription, no API key, no extension telemetry. Gemini Exporter processes your conversations inside your browser and saves the results directly to your device — never to a server we operate. It’s open source, so you can inspect exactly how it works.</p>
         </div>
         <div class="story-media story-diagram">
           <img src="/assets/local-only.svg" width="680" height="420" loading="lazy" decoding="async" alt="Diagram showing a Gemini browser session processed locally into files on your device, with no upload to the exporter developer's servers">
@@ -115,7 +194,7 @@
         </details>
         <details>
           <summary>Can I save generated images, uploaded files, and other attachments?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>The exporter includes images and attachments where the source platform still makes them accessible. Some generated images or uploaded files can expire or become unavailable, in which case they cannot be reconstructed. The extension reports detected resource problems rather than pretending a partial export is complete.</p></div>
+          <div class="faq-answer"><p>When you choose to include attachments, the exporter saves images and files that the source platform still makes accessible. Some generated images or uploaded files can expire or become unavailable, in which case they cannot be reconstructed. The extension reports detected resource problems rather than pretending a partial export is complete.</p></div>
         </details>
         <details>
           <summary>Is Gemini Exporter free, private, and open source?<span class="faq-plus" aria-hidden="true">+</span></summary>
@@ -148,8 +227,10 @@
 
   <footer class="footer wrap">
     <div class="footer-line">
-      <span class="footer-brand">Your chats, your files.</span>
+      <span class="footer-brand">Gemini Exporter<span class="brand-dot">.</span></span>
       <div class="footer-links">
+        <a href="/export-all-gemini-chats">Bulk export</a>
+        <a href="/import-google-takeout-gemini">Takeout</a>
         <a href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">Source</a>
         <a href="/website-privacy">Website privacy</a>
         <a href="https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener noreferrer">Guide</a>

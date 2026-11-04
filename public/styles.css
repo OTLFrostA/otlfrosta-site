@@ -83,7 +83,7 @@ h1 span{color:transparent;background:linear-gradient(100deg,#b5bcff,#e0c7ff 55%,
 .footer{padding-top:65px;padding-bottom:34px}
 .footer-line{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(191,193,222,.12);gap:20px;padding-bottom:25px}
 .footer-brand{font-size:13px;font-weight:650}
-.footer-links{display:flex;gap:24px;color:#b2b4c7;font-size:13px}
+.footer-links{display:flex;flex-wrap:wrap;row-gap:13px;gap:13px 24px;color:#b2b4c7;font-size:13px}
 .footer > p{margin-top:19px;color:#858ba3;font-size:11px;line-height:1.5}
 @media(max-width:900px){
   .feature-story{gap:30px}
@@ -130,3 +130,104 @@ h1 span{color:transparent;background:linear-gradient(100deg,#b5bcff,#e0c7ff 55%,
   .footer-line{flex-direction:column;align-items:flex-start;gap:20px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.button,.faq-plus{transition:none!important}}
+
+
+/* 2026 search-intent homepage: illustrative workflow, task navigation and quickstart. */
+.hero-eyebrow{margin-top:26px;color:#bfc0e3;font-size:11px;font-weight:720;letter-spacing:2px}
+.hero .hero-eyebrow + h1{margin-top:17px;font-size:clamp(42px,6vw,78px)}
+.hero .hero-subtitle{max-width:810px;margin-inline:auto}
+.hero .hero-detail{max-width:730px}
+.hero-workflow{margin:64px auto 0;max-width:984px;text-align:left;overflow:hidden;border:1px solid rgba(172,165,243,.25);border-radius:20px;background:linear-gradient(145deg,rgba(32,34,57,.97),rgba(17,20,34,.97));box-shadow:0 18px 75px rgba(0,0,0,.28),0 8px 55px rgba(97,82,175,.11)}
+.workflow-topline{height:52px;padding:0 25px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(190,187,235,.11);font-size:10px;font-weight:760;letter-spacing:1.5px;color:#d7d6ee}
+.workflow-mini-dot{height:8px;width:8px;flex:none;background:#bfb5ff;border-radius:50%}
+.workflow-top-tag{margin-left:auto;font-size:10px;letter-spacing:1px;font-weight:590;color:#8f98bb}
+.workflow-main{padding:31px 36px 26px}
+.workflow-steps{display:grid;grid-template-columns:minmax(0,1fr) 20px minmax(0,1fr) 20px minmax(0,1fr);gap:13px;align-items:center}
+.workflow-step{display:flex;align-items:center;gap:13px;min-height:80px;min-width:0;padding:13px;border:1px solid rgba(188,177,255,.19);border-radius:12px;background:rgba(255,255,255,.045)}
+.workflow-number{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:9px;background:rgba(176,160,255,.12);color:#cfc1ff;font-size:11px;font-weight:760}
+.workflow-step strong{display:block;font-size:14px;letter-spacing:-.15px;line-height:1.3}
+.workflow-step small{display:block;margin-top:5px;color:#9fa5bc;font-size:11px;line-height:1.35}
+.workflow-arrow{color:#b9afd7;text-align:center;font-size:19px}
+.workflow-result{margin-top:21px;max-width:100%;border:1px solid rgba(182,189,228,.13);border-radius:12px;background:rgba(4,8,16,.45);overflow:hidden;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+.workflow-file-head{display:flex;align-items:center;gap:10px;padding:17px 24px;border-bottom:1px solid rgba(182,189,228,.12);color:#e2dcff;font-size:13px}
+.workflow-folder-mark{color:#b9a6fa}
+.workflow-file-meta{margin-left:auto;color:#8e98b3;font-size:10px}
+.workflow-file-row{padding:10px 24px;color:#d7dbea;font-size:12px;border-bottom:1px solid rgba(182,189,228,.065)}
+.workflow-file-row:last-child{border-bottom:0}
+.workflow-file-row>span:first-child{color:#727b99;margin-right:13px}
+.workflow-file-row>span:last-child{float:right;color:#9098b3;font-size:10px}
+.workflow-caption{color:#929ab3;font-size:11px;text-align:center;padding:0 18px 22px;line-height:1.6}
+.trust-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:62px;border-block:1px solid rgba(188,189,235,.13)}
+.trust-row>span{display:flex;flex-direction:column;gap:5px;padding:24px 15px;border-right:1px solid rgba(188,189,235,.11);text-align:center}
+.trust-row>span:last-child{border-right:0}
+.trust-row strong{font-size:13px;font-weight:690;color:#eae7fb}
+.trust-row small{color:#969db6;font-size:11px}
+.use-cases{margin-top:120px;scroll-margin-top:78px}
+.section-heading{max-width:760px}
+.section-heading h2{font-size:clamp(35px,4.65vw,57px);font-weight:710;letter-spacing:-.065em;line-height:1.11;margin-top:15px}
+.section-heading>p:last-child:not(.kicker){color:#b1b7ce;font-size:15px;line-height:1.75;margin-top:17px;max-width:660px}
+.usecase-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:36px}
+.usecase-card{position:relative;min-width:0;min-height:275px;padding:30px 32px;display:flex;flex-direction:column;align-items:flex-start;border:1px solid rgba(180,179,220,.17);border-radius:17px;background:linear-gradient(137deg,rgba(37,37,60,.6),rgba(17,19,32,.77));transition:border-color .2s ease,background .2s ease,transform .2s ease}
+.usecase-card:hover{border-color:rgba(205,181,255,.53);transform:translateY(-3px);background:linear-gradient(137deg,rgba(55,48,82,.67),rgba(21,23,38,.89))}
+.usecase-number{color:#aea7d7;font-size:10px;letter-spacing:1.55px;font-weight:760}
+.usecase-icon{position:absolute;top:27px;right:30px;display:grid;place-items:center;width:47px;height:47px;border-radius:13px;color:#d0c5ff;background:rgba(181,165,255,.10);font-size:23px;line-height:1}
+.usecase-card h3{margin-top:44px;font-size:clamp(23px,2.5vw,29px);line-height:1.15;letter-spacing:-.04em;font-weight:690}
+.usecase-card p{font-size:14px;line-height:1.7;color:#afb5ca;margin-top:12px;max-width:405px}
+.usecase-link{display:inline-flex;gap:9px;align-items:center;margin-top:auto;padding-top:27px;color:#d3c4ff;font-size:12px;font-weight:740}
+.usecase-link span{transition:transform .2s ease}
+.usecase-card:hover .usecase-link span{transform:translate(2px,-2px)}
+.quickstart{display:grid;grid-template-columns:minmax(0,.87fr) minmax(0,1.13fr);gap:clamp(45px,6vw,100px);margin-top:118px;padding-top:90px;border-top:1px solid var(--border);scroll-margin-top:78px}
+.quickstart .section-heading h2{font-size:clamp(35px,4vw,50px)}
+.quickstart-list{margin:0;padding:0;list-style:none;grid-column:2;grid-row:1;display:flex;flex-direction:column;gap:0}
+.quickstart-list li{display:flex;gap:20px;padding:25px 0;border-bottom:1px solid rgba(191,193,222,.12)}
+.quickstart-list li:first-child{padding-top:5px}
+.quickstart-num{flex:none;display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(180,162,246,.27);border-radius:11px;color:#cfbfff;font-weight:700}
+.quickstart-list h3{font-size:17px;letter-spacing:-.3px}
+.quickstart-list p{color:#afb6ca;font-size:13px;line-height:1.74;margin-top:9px}
+.quickstart-list strong,.quickstart-note strong{color:#ddd2ff}
+.quickstart-note{grid-column:2;grid-row:2;color:#909cb8;font-size:12px;line-height:1.6;margin-top:-9px}
+.quickstart+.features{padding-top:125px}
+@media(max-width:940px){
+  .workflow-main{padding:25px}
+  .workflow-step{gap:8px;padding:11px}
+  .workflow-step strong{font-size:12px}
+  .workflow-step small{font-size:10px}
+  .quickstart{gap:40px}
+}
+@media(max-width:720px){
+  .hero .hero-eyebrow + h1{font-size:clamp(37px,8vw,55px)}
+  .hero-workflow{margin-top:44px}
+  .workflow-steps{grid-template-columns:1fr;gap:9px}
+  .workflow-arrow{display:none}
+  .workflow-step{min-height:66px}
+  .workflow-step strong{font-size:13px}
+  .workflow-step small{font-size:11px}
+  .workflow-main{padding:18px}
+  .workflow-file-head{padding:15px}
+  .workflow-file-row{padding:11px 15px}
+  .trust-row{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:40px}
+  .trust-row>span:nth-child(2){border-right:0}
+  .trust-row>span:nth-child(-n+2){border-bottom:1px solid rgba(188,189,235,.11)}
+  .use-cases{margin-top:88px}
+  .usecase-grid{gap:14px;margin-top:27px}
+  .usecase-card{min-height:248px;padding:24px}
+  .usecase-card h3{font-size:25px}
+  .quickstart{grid-template-columns:1fr;margin-top:80px;padding-top:65px;gap:25px}
+  .quickstart-list{grid-column:1;grid-row:2}
+  .quickstart-note{grid-column:1;grid-row:3;margin-top:-10px}
+  .quickstart+.features{padding-top:100px}
+}
+@media(max-width:560px){
+  .nav-how{display:none}
+  .hero-eyebrow{font-size:9px;letter-spacing:1.5px}
+  .workflow-topline{padding-inline:15px}
+  .workflow-top-tag{font-size:8px;letter-spacing:.4px}
+  .workflow-file-meta{font-size:9px}
+  .trust-row strong{font-size:12px}
+  .trust-row small{font-size:10px}
+  .section-heading h2{font-size:clamp(32px,9vw,44px)}
+  .usecase-grid{grid-template-columns:1fr}
+  .usecase-card{min-height:224px}
+  .usecase-card h3{margin-top:36px}
+}
+@media(prefers-reduced-motion:reduce){.usecase-card,.usecase-link span{transition:none}}

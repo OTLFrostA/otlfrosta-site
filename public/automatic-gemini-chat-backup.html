@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#0b0c12">
+  <meta name="description" content="Keep Gemini conversations backed up locally as Markdown when new replies finish. Learn how to enable Live Save in Gemini Exporter, including its browser and folder requirements.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://otlfrosta.com/automatic-gemini-chat-backup">
+  <link rel="icon" href="/assets/icon.png" type="image/png" sizes="128x128">
+  <link rel="stylesheet" href="/styles.css?v=20261104-seo-guides">
+  <link rel="stylesheet" href="/guides.css?v=20261104">
+  <script src="/utm.js?v=1" defer></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Gemini Exporter">
+  <meta property="og:title" content="Automatically Back Up Gemini Chats — Local Markdown Live Save">
+  <meta property="og:description" content="Keep Gemini conversations backed up locally as Markdown when new replies finish. Learn how to enable Live Save in Gemini Exporter, including its browser and folder requirements.">
+  <meta property="og:url" content="https://otlfrosta.com/automatic-gemini-chat-backup">
+  <meta property="og:image" content="https://otlfrosta.com/assets/workbench.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Automatically Back Up Gemini Chats — Local Markdown Live Save | Gemini Exporter</title>
+</head>
+<body class="guide-page">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="Gemini Exporter homepage"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span><span></span></span><span>Gemini Exporter<span class="brand-dot">.</span></span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav-features" href="/#use-cases">Guides</a>
+      <a class="nav-how" href="/#how-it-works">How it works</a>
+      <a class="nav-faq" href="#questions">FAQ</a>
+      <a class="nav-github" href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+  </header>
+  <main id="main">
+    <nav class="guide-breadcrumbs wrap" aria-label="Breadcrumb"><a href="/">Gemini Exporter</a><span aria-hidden="true">/</span><a href="/#use-cases">Guides</a><span aria-hidden="true">/</span><span aria-current="page">LOCAL MARKDOWN LIVE SAVE</span></nav>
+    <section class="guide-hero wrap" aria-labelledby="guide-title">
+      <div>
+        <p class="guide-eyebrow">LOCAL MARKDOWN LIVE SAVE</p>
+        <h1 id="guide-title">Automatically back up Gemini chats as Markdown</h1>
+        <p class="guide-lead">Want an updated local copy without repeatedly clicking Export? Live Save can update a conversation's Markdown file when Gemini finishes a reply during an active browsing session.</p>
+        <p class="guide-caption">Free and open source. Your conversation exports are processed in Chrome and saved to your own device.</p>
+        <div class="guide-actions">
+          <a data-store-cta class="button button-primary" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=automatic_gemini_chat_backup" target="_blank" rel="noopener noreferrer">Add to Chrome <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline" href="#steps">Read the steps <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="guide-availability">Published extension: Google Gemini · ChatGPT, Claude and Grok integrations are experimental.</p>
+      </div>
+      <aside class="guide-facts" aria-label="Guide overview">
+        <p class="guide-facts-kicker">AT A GLANCE</p>
+        <h2>Hands-off Markdown updates</h2>
+        <ul>
+          <li><strong>Format</strong><span>Markdown (.md) only</span></li>
+            <li><strong>Destination</strong><span>User-authorized local folder</span></li>
+            <li><strong>When it runs</strong><span>While actively browsing Gemini in Chrome</span></li>
+        </ul>
+      </aside>
+    </section>
+
+    <section class="guide-section wrap" id="steps" aria-labelledby="steps-title">
+      <div class="guide-section-header">
+        <p class="kicker">STEP BY STEP</p>
+        <h2 id="steps-title">How to do it</h2>
+        <p>Live Save is a local folder workflow, not a remote synchronization service. Start with a manual bulk backup if you want a complete initial snapshot.</p>
+      </div>
+      <ol class="guide-steps">
+        <li><span class="guide-step-number">STEP 01</span><h3>Choose a local folder</h3><p>Open the Gemini Exporter Workbench, switch the output destination to <strong>Save to local folder</strong> and click <strong>Choose folder</strong> to grant access.</p></li>
+          <li><span class="guide-step-number">STEP 02</span><h3>Select Markdown (.md)</h3><p>Choose <strong>Markdown (.md)</strong> as the output format. Live Save currently does not write PDF, HTML or JSON automatically.</p></li>
+          <li><span class="guide-step-number">STEP 03</span><h3>Enable Live Save</h3><p>Turn on <strong>Live Save</strong> inside the local-folder card. Keep the correct Gemini account and local folder selected.</p></li>
+          <li><span class="guide-step-number">STEP 04</span><h3>Continue using Gemini</h3><p>When Gemini finishes new replies during active browsing, the extension updates the corresponding Markdown backup. Check the local files to confirm the result.</p></li>
+      </ol>
+    </section>
+
+    <section class="guide-section guide-section-visual wrap" aria-labelledby="details-title">
+      <div>
+        <p class="kicker">KNOW WHAT YOU'RE SAVING</p>
+        <h2 id="details-title">What Live Save does — and what it does not</h2>
+        <div class="guide-copy"><p>Live Save is meant to reduce the need to re-export an ongoing Gemini conversation by hand. It writes a Markdown update to the folder you explicitly authorized; the data does not pass through a hosted backup service operated by the extension.</p><p>It is not an always-on cloud agent. Updates depend on your browser session, platform access and local folder permissions. Switching away from local-folder delivery or choosing a non-Markdown export format pauses Live Save, even if the preference stays enabled.</p></div>
+      </div>
+      <figure class="guide-visual"><img src="/assets/live-save.svg" width="1280" height="800" loading="lazy" decoding="async" alt="Conceptual diagram of a finished Gemini reply updating a Markdown file in a local folder"><figcaption>Conceptual illustration · Live Save targets local Markdown files, not cloud storage.</figcaption></figure>
+    </section>
+
+    <section class="guide-section wrap" aria-labelledby="benefits-title">
+      <div class="guide-section-header"><p class="kicker">PRACTICAL BENEFITS</p><h2 id="benefits-title">Built for the way you work</h2></div>
+      <div class="guide-benefits-grid">
+        <article class="guide-benefit"><span class="benefit-symbol" aria-hidden="true">↻</span><h3>Fewer repeat exports</h3><p>New replies can update the local Markdown copy without another manual export click.</p></article>
+          <article class="guide-benefit"><span class="benefit-symbol" aria-hidden="true">⌁</span><h3>Readable plain-text files</h3><p>Markdown is easy to search, diff, edit and organize with other note-taking tools.</p></article>
+          <article class="guide-benefit"><span class="benefit-symbol" aria-hidden="true">▣</span><h3>Your folder, your control</h3><p>Files stay in a location you authorize; no exporter-hosted cloud backup is required.</p></article>
+      </div>
+    </section>
+
+    <aside class="guide-note wrap" aria-label="Important limits"><h2>What to keep in mind</h2><p><strong>Important boundaries:</strong> Live Save is <strong>Markdown-only</strong> and works during active browser use. Switching to Browser download or another format pauses it. Browser or folder permissions may need to be renewed after a restart. For a complete snapshot of earlier chats, <a href="/export-all-gemini-chats">run a bulk export</a>.</p></aside>
+
+    <section class="guide-section guide-questions wrap" id="questions" aria-labelledby="questions-title">
+      <div class="faq-intro"><p class="kicker">COMMON QUESTIONS</p><h2 id="questions-title">Answers before you export.</h2><p>Based on the published Gemini Exporter workflow and its current limitations.</p><a class="guide-link" href="https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener noreferrer">Complete user guide <span aria-hidden="true">↗</span></a></div>
+      <div class="faq-list">
+        <details><summary>Does Live Save keep working when Chrome is closed? <span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>No. It is not an independently running cloud service. Keep Chrome open, be signed in to Gemini and maintain the required site and folder permissions.</p></div></details>
+          <details><summary>Can Live Save automatically create PDFs or HTML files? <span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>Not currently. Live Save targets <strong>Markdown (.md)</strong> in an authorized local folder. Use a manual export for PDF, HTML or JSON.</p></div></details>
+          <details><summary>Why did Live Save stop after I changed export format? <span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>Selecting <strong>Browser download</strong> or a non-Markdown format pauses Live Save. Return to <strong>Save to local folder</strong> and Markdown; reauthorize the folder if prompted.</p></div></details>
+      </div>
+    </section>
+
+    <section class="guide-next wrap" aria-labelledby="next-title">
+      <p class="kicker">EXPLORE MORE</p>
+      <h2 id="next-title">Other ways to keep your Gemini chats</h2>
+      <div class="guide-next-grid">
+        <a href="/export-all-gemini-chats"><small>BULK GEMINI EXPORT</small><strong>How to export all your Gemini chats at once</strong><span>Read guide ↗</span></a>
+          <a href="/import-google-takeout-gemini"><small>GOOGLE TAKEOUT IMPORT</small><strong>Import a Google Takeout Gemini ZIP into readable chats</strong><span>Read guide ↗</span></a>
+          <a href="/export-gemini-chat-formats"><small>GEMINI EXPORT FORMATS</small><strong>Export Gemini chats to PDF, Markdown, HTML or JSON</strong><span>Read guide ↗</span></a>
+      </div>
+    </section>
+
+    <section class="closing wrap" aria-labelledby="closing-title">
+      <div><p class="kicker">READY TO KEEP YOUR CONVERSATIONS?</p><h2 id="closing-title">Your chats. Your local files.</h2><p>No exporter account, subscription or developer-hosted upload.</p></div>
+      <a data-store-cta class="button button-primary" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=automatic_gemini_chat_backup" target="_blank" rel="noopener noreferrer">Get Gemini Exporter <span aria-hidden="true">↗</span></a>
+    </section>
+  </main>
+  <footer class="footer wrap">
+    <div class="footer-line">
+      <a class="footer-brand" href="/">Gemini Exporter<span class="brand-dot">.</span></a>
+      <div class="footer-links"><a href="/#use-cases">All guides</a><a href="/privacy">Extension privacy</a><a href="/website-privacy">Website privacy</a><a href="https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener noreferrer">Guide</a></div>
+    </div>
+    <p>Cookie-free Cloudflare Web Analytics measures this website; EU visitor metrics are excluded. The extension has no telemetry and does not upload chat content to a developer server.</p>
+    <p>Independent open-source project. Not affiliated with Google or any AI provider.</p>
+  </footer>
+</body>
+</html>

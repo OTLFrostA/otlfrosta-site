@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://otlfrosta.com/</loc></url>
+  <url><loc>https://otlfrosta.com/export-all-gemini-chats</loc></url>
+  <url><loc>https://otlfrosta.com/import-google-takeout-gemini</loc></url>
+  <url><loc>https://otlfrosta.com/automatic-gemini-chat-backup</loc></url>
+  <url><loc>https://otlfrosta.com/export-gemini-chat-formats</loc></url>
   <url><loc>https://otlfrosta.com/privacy</loc></url>
   <url><loc>https://otlfrosta.com/website-privacy</loc></url>
 </urlset>
