@@ -29,16 +29,16 @@ Page design is shared through `public/styles.css` and `public/guides.css`, with 
 
 ## Homepage interactive demo (sample data only)
 
-The hero includes a **small, interactive Workbench tour** in place of its old static illustrated Sync → Select → Export diagram. Visitors can click **Sync All** to populate four fictional example conversations, toggle individual or all chats, choose Markdown, PDF, HTML or JSON, and click **Export selected** to preview the resulting filenames.
+The hero now contains a **Workbench-accurate visual replica** of the extension's native `src/ui/options/options.html` UI. The reference is the actual light-mode Chrome Web Store screenshot at `OTLFrostA/gemini-exporter/store_assets/screenshot_1_1280x800.png`; the website preview intentionally keeps the same left-side export settings and right-side conversation catalog, color tokens, button labels, search, export-status filters, and selection flow.
 
-- `public/demo.js` wires the UI with accessible native buttons/checkboxes/radio controls, stateful selection, live status and a Reset control.
-- `public/demo-data.mjs` contains only fictional sample content and pure local renderers for Markdown/HTML/JSON. The simple, dependency-free ZIP writer packages each selected fictional chat into its own downloadable example file. The sample ZIP is not the actual extension export format/schema, and cannot connect to Gemini.
-- PDF in the demo is **filename preview only**; no PDF download is advertised. Actual PDF generation remains in the Chrome extension.
-- `public/demo.css` owns demo-only responsive styles and visible keyboard focus. The existing `styles.css`, marketing pages, SVGs, privacy pages, CSP and UTM forwarding stay separate.
-- The demo uses no Chrome extension APIs, login, network requests, remote scripts, cookies, telemetry or browser storage. It only downloads a ZIP after the user clicks the corresponding button.
-- `node --test scripts/test-demo.mjs` checks sample ordering, formats, ZIP structure, CRC, invalid input and privacy boundaries. PR CI also checks the JavaScript modules parse successfully.
+- **Real interaction subset:** Sync All loads four **fictional** conversations; select all/individual rows, search titles, filter by export-record status, choose Markdown/HTML/PDF/JSON, toggle Skip exported, preview export results, and use the theme toggle.
+- **Extension-only controls:** Site access, account switching, local folder authorization and Live Save are shown for visual fidelity but disabled or displayed as non-interactive labels. The website does not request Gemini permissions or pretend to have real account data. On smaller viewports, the desktop-only demo is hidden but the marketing site and SEO pages remain readable.
+- `public/demo.js` owns the independent UI state. `public/demo-data.mjs` supplies only fictional content and creates simplified Markdown/HTML/JSON examples. It assembles a tiny uncompressed ZIP locally only when requested by the user. PDF offers filename preview only; actual PDF generation remains inside the extension.
+- `public/demo.css` scopes the visual replica to the preview panel and uses a light default theme with a functional optional dark mode. The homepage's existing design, SEO, UTM attribution, privacy pages and security headers are unaffected.
+- No Chrome APIs, login, network requests, remote scripts, cookies, telemetry or browser storage are used. The ZIP download requires an explicit click.
+- `node --test scripts/test-demo.mjs` covers sample rendering/ZIP structure, safe input handling, UI labels/panel ordering, search/filter state and privacy boundaries.
 
-The public homepage is the only page with this demo. Keep all sample previews clearly labeled and do not equate clicking the demo's Sync All with discovering real signed-in Gemini history.
+A preview is not the extension. It deliberately uses a small subset of its real Workbench; do not interpret `Sync All` in the demo as discovering signed-in Gemini history or claim the simplified ZIP is an exact extension-produced archive.
 
 ## Deploy via Cloudflare Pages
 
