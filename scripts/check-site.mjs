@@ -96,7 +96,10 @@ const htmlFiles = files.filter((file) => file.endsWith(".html"));
 const idsByFile = new Map();
 for (const file of htmlFiles) {
   const body = readFileSync(file, "utf8");
-  idsByFile.set(file, new Set([...body.matchAll(/\bid\s*=\s*["']([^"']+)["']/gi)].map((match) => match[1])));
+  const ids = [...body.matchAll(/\bid\s*=\s*["']([^"']+)["']/gi)].map((match) => match[1]);
+  check(ids.length === new Set(ids).size,
+    relative(siteRoot, file) + ": duplicate HTML id attributes");
+  idsByFile.set(file, new Set(ids));
 }
 
 for (const file of htmlFiles) {
