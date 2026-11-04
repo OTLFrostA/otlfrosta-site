@@ -30,6 +30,7 @@ jobs:
     name: Deploy to Cloudflare Pages
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: validate
+    environment: production
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -47,7 +48,7 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in repository Actions secrets."
+            echo "::error::Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID in the production environment secrets."
             exit 1
           fi
       - name: Deploy main to Cloudflare Pages
