@@ -17,8 +17,8 @@ Preserve a practical FAQ with real current button names and content about batch 
 - Project: `otlfrosta-web`
 - Repo: `OTLFrostA/otlfrosta-site`
 - Production branch: `main`
-- Framework: None; build command: `node scripts/check-site.mjs`; output directory: `public`
-- Preview branches: enabled for PR previews; production branch commits deploy automatically
+- Framework: None; deployable output directory: `public` (Cloudflare build validation retained for Git previews; production upload is done by GitHub Actions)
+- PR preview branches: Cloudflare Git integration may create previews; GitHub Actions owns all production deployments, with Cloudflare native production auto-deploy disabled
 - Site URL: `https://otlfrosta-web.pages.dev`
 - Domain migration pending: `otlfrosta.com` and `www.otlfrosta.com` still point to the old `otlfrosta-site` Pages project until explicitly transferred
 
@@ -43,12 +43,14 @@ This tracks campaign-level Chrome Web Store visits and installs, not X post impr
 
 ## CI/CD (merge to deploy)
 
-1. Open a PR against `main`. GitHub Actions runs `.github/workflows/site-ci.yml` (syntax check and `node scripts/check-site.mjs`), and Cloudflare Pages generates a preview deployment.
-2. Check that the CI job and Cloudflare preview are successful. The validator checks internal links/assets, page anchors, canonical URLs, sitemap, robots.txt, redirects, privacy pages and security headers, with no dependencies or network requests.
-3. Merge the PR to `main`. Cloudflare Pages' existing GitHub integration automatically builds and publishes `public/` to `otlfrosta-web`; no GitHub deploy Action, Cloudflare API token, or release tag is needed.
-4. The same validation script is configured as the Cloudflare Pages **build command**, so a failing validation prevents production deployment even if someone bypasses the PR CI. In GitHub Settings, requiring the `Validate static site` check on `main` is recommended when branch rules are available.
-
-Keep the Cloudflare project's `production_branch=main`, `production_deployments_enabled=true`, and output directory `public`. Do not create another deployment workflow for the same branch. The public custom domains do not switch automatically: domain cutover from the old Pages project is a separate operation.
+- Source of truth: `OTLFrostA/otlfrosta-site` `main`.
+- `.github/workflows/site-ci.yml` runs `Validate static site` for every PR and push to `main`. It validates syntax, internal links/assets, anchors, canonical URLs, sitemap, privacy policies, redirects and security headers.
+- On pushes to `main` **after validation succeeds**, the same GitHub Actions workflow runs `Deploy to Cloudflare Pages` using `cloudflare/wrangler-action@v4` and `pages deploy public --project-name=otlfrosta-web --branch=main`.
+- Deployment credentials must be stored only in GitHub **Actions repository secrets** as `CLOUDFLARE_API_TOKEN` (Cloudflare Pages Edit permission for the website account) and `CLOUDFLARE_ACCOUNT_ID`. Do not commit API tokens, and do not expose them in workflow output.
+- Cloudflare's **native production Git auto-deployment is disabled** to avoid duplicate deployments. The Pages project remains Git-connected, and optional PR previews do not publish production releases.
+- Workflow deployment runs are serialized for the production project. No tag or manual upload is required for normal website updates; merges deploy automatically after CI.
+- GitHub branch protection requiring `Validate static site` is recommended, if supported by repository rules.
+- The website custom-domain transfer is a separate operation: `otlfrosta.com` and `www.otlfrosta.com` stay bound to the original Pages project until a validated cutover.
 
 ## Release verification
 
