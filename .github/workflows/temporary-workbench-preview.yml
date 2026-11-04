@@ -1,0 +1,31 @@
+name: Temporary Workbench Preview
+on:
+  push:
+    branches: [feat/homepage-interactive-demo-20261104]
+permissions:
+  contents: read
+jobs:
+  preview:
+    name: Deploy Workbench preview only
+    runs-on: ubuntu-latest
+    environment: production
+    timeout-minutes: 15
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate website and realistic workbench demo
+        run: |
+          node scripts/check-site.mjs
+          node --check public/demo.js
+          node --test scripts/test-demo.mjs
+      - name: Deploy preview only (non-main branch)
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=otlfrosta-web --branch=feat-homepage-interactive-demo-20261104
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
