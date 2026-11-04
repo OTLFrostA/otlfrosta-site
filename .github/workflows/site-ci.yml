@@ -25,6 +25,11 @@ jobs:
         run: node --check public/utm.js
       - name: Validate deployed website
         run: node scripts/check-site.mjs
+      - name: Test interactive export demo
+        run: |
+          node --check public/demo.js
+          node --check public/demo-data.mjs
+          node --test scripts/test-demo.mjs
 
   deploy:
     name: Deploy to Cloudflare Pages
