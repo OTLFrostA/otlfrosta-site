@@ -27,6 +27,19 @@ These are useful how-to pages, **not claims of support for unshipped features**.
 
 Page design is shared through `public/styles.css` and `public/guides.css`, with no external libraries or fonts. Each page must keep a unique title, meta description, self canonical URL, OG metadata, semantic headings, relevant Workbench terminology, internal links, privacy claims and honest limitations. When adding a page, link it from the homepage/other guides and add it to `public/sitemap.xml`. Keep `public/_headers`, privacy pages and `public/utm.js` behavior intact. Each guide's Chrome Web Store CTA carries a page-specific default `utm_campaign` while preserving validated inbound campaign parameters.
 
+## Homepage interactive demo (sample data only)
+
+The hero now contains a **Workbench-accurate visual replica** of the extension's native `src/ui/options/options.html` UI. The reference is the actual light-mode Chrome Web Store screenshot at `OTLFrostA/gemini-exporter/store_assets/screenshot_1_1280x800.png`; the website preview intentionally keeps the same left-side export settings and right-side conversation catalog, color tokens, button labels, search, export-status filters, and selection flow.
+
+- **Real interaction subset:** Sync All loads four **fictional** conversations; select all/individual rows, search titles, filter by export-record status, choose Markdown/HTML/PDF/JSON, toggle Skip exported, preview export results, and use the theme toggle.
+- **Extension-only controls:** Site access, account switching, local folder authorization and Live Save are shown for visual fidelity but disabled or displayed as non-interactive labels. The website does not request Gemini permissions or pretend to have real account data. On smaller viewports, the desktop-only demo is hidden but the marketing site and SEO pages remain readable.
+- `public/demo.js` owns the independent UI state. `public/demo-data.mjs` supplies only fictional content and creates simplified Markdown/HTML/JSON examples. It assembles a tiny uncompressed ZIP locally only when requested by the user. PDF offers filename preview only; actual PDF generation remains inside the extension.
+- `public/demo.css` scopes the visual replica to the preview panel and uses a light default theme with a functional optional dark mode. The homepage's existing design, SEO, UTM attribution, privacy pages and security headers are unaffected.
+- No Chrome APIs, login, network requests, remote scripts, cookies, telemetry or browser storage are used. The ZIP download requires an explicit click.
+- `node --test scripts/test-demo.mjs` covers sample rendering/ZIP structure, safe input handling, UI labels/panel ordering, search/filter state and privacy boundaries.
+
+A preview is not the extension. It deliberately uses a small subset of its real Workbench; do not interpret `Sync All` in the demo as discovering signed-in Gemini history or claim the simplified ZIP is an exact extension-produced archive.
+
 ## Deploy via Cloudflare Pages
 
 - Project: `otlfrosta-web`

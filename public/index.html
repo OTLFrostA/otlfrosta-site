@@ -10,7 +10,9 @@
   <link rel="canonical" href="https://otlfrosta.com/">
   <link rel="icon" href="/assets/icon.png" type="image/png" sizes="128x128">
   <link rel="stylesheet" href="/styles.css?v=20261104-seo-guides">
+  <link rel="stylesheet" href="/demo.css?v=20261104-v1">
   <script src="/utm.js?v=1" defer></script>
+  <script type="module" src="/demo.js?v=20261104-v1"></script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Gemini Exporter — Free local Gemini chat backup">
   <meta property="og:site_name" content="Gemini Exporter">
@@ -45,30 +47,84 @@
           <svg class="chrome-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="4.6" fill="#5872e0"/><path d="M11.2 2a10 10 0 0 1 9.5 5.5h-9l-2 3.3-4.8-7.1A9.9 9.9 0 0 1 11.2 2Z" fill="#f1c34a"/><path d="M2.4 9.3a10 10 0 0 0 8.6 12.6l4.4-7.6h-4.2L6.8 6.9 2.4 9.3Z" fill="#42a777"/><path d="M20.7 7.5a10 10 0 0 1-8.1 14.4l4.1-7.2-2.2-3.7 1.9-3.5h4.3Z" fill="#e26864"/></svg>
           Add to Chrome <span aria-hidden="true">↗</span>
         </a>
-        <a class="button button-outline" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
+        <a class="button button-outline" href="#try-demo">Try interactive demo <span aria-hidden="true">↓</span></a>
       </div>
       <p class="availability"><span class="available-dot" aria-hidden="true"></span> Gemini available now <span class="availability-divider" aria-hidden="true">/</span> ChatGPT, Claude &amp; Grok are experimental and not yet released in Chrome Web Store</p>
 
 
-      <div class="hero-workflow" aria-label="Illustration of the Gemini bulk export process">
-        <div class="workflow-topline"><span class="workflow-mini-dot" aria-hidden="true"></span> GEMINI EXPORTER <span class="workflow-top-tag">HOW IT WORKS · ILLUSTRATION</span></div>
-        <div class="workflow-main">
-          <div class="workflow-steps">
-            <div class="workflow-step"><span class="workflow-number">01</span><span><strong>Sync All</strong><small>Discover accessible chats</small></span></div>
-            <span class="workflow-arrow" aria-hidden="true">→</span>
-            <div class="workflow-step"><span class="workflow-number">02</span><span><strong>Select</strong><small>Choose conversations</small></span></div>
-            <span class="workflow-arrow" aria-hidden="true">→</span>
-            <div class="workflow-step"><span class="workflow-number">03</span><span><strong>Export selected</strong><small>Save local files</small></span></div>
+
+      <section class="hero-demo" id="try-demo" data-demo-root data-ready="false" data-theme="light" aria-label="Interactive replica of the Gemini Exporter Workbench">
+        <div class="demo-disclosure"><span class="demo-live-dot" aria-hidden="true"></span><strong>Try the actual Workbench flow</strong><span>Faithful UI replica · fictional chats · no Gemini connection</span><button data-demo-reset type="button">↺ Reset</button></div>
+        <p class="demo-loading" data-demo-loading>Loading Workbench preview. This demo uses only sample data.</p>
+        <div class="demo-interface">
+          <div class="demo-app-header">
+            <div class="demo-app-brand"><span>Gemini Exporter</span><span class="demo-version">Demo</span></div>
+            <div class="demo-app-tools">
+              <button class="demo-theme-button" data-demo-theme-toggle type="button" aria-label="Switch demo to dark theme" title="Toggle workbench appearance">☾</button>
+              <span class="demo-header-pill" title="Available in the installed extension">Site access</span>
+              <span class="demo-header-pill demo-tour" title="Available in the installed extension">💡 Tour Guide</span>
+              <span class="demo-header-pill demo-lang">EN</span>
+            </div>
           </div>
-          <div class="workflow-result">
-            <div class="workflow-file-head"><span class="workflow-folder-mark" aria-hidden="true">▣</span><span>gemini-backup/</span><span class="workflow-file-meta">Illustrative Markdown export</span></div>
-            <div class="workflow-file-row"><span aria-hidden="true">↳</span> research-notes.md <span>Markdown</span></div>
-            <div class="workflow-file-row"><span aria-hidden="true">↳</span> project-ideas.md <span>Markdown</span></div>
-            <div class="workflow-file-row"><span aria-hidden="true">↳</span> trip-planning.md <span>Markdown</span></div>
+          <div class="demo-workbench">
+            <aside class="demo-settings-pane" aria-label="Export settings, matching the extension Workbench">
+              <div class="demo-preferences">
+                <label class="demo-format-row"><span>Format</span>
+                  <select data-demo-format aria-label="Export format">
+                    <option value="markdown">Markdown (.md)</option>
+                    <option value="html">HTML (.html)</option>
+                    <option value="pdf">PDF (.pdf)</option>
+                    <option value="json">JSON (.json)</option>
+                  </select>
+                </label>
+                <label class="demo-skip-row"><input type="checkbox" data-demo-skip checked><span>Skip exported</span></label>
+              </div>
+              <div class="demo-export-destination">
+                <h2>Export to</h2>
+                <div class="demo-delivery-card is-active">
+                  <label class="demo-delivery-choice"><input type="radio" name="demo-delivery" checked value="browserDownload"><span><strong>Browser download</strong><small>Save using your browser</small></span></label>
+                </div>
+                <div class="demo-delivery-card demo-delivery-disabled">
+                  <label class="demo-delivery-choice" title="Folder access is available in the installed extension"><input type="radio" name="demo-delivery" value="folderWriter" disabled><span><strong>Save to local folder</strong><small>Write directly to a chosen folder</small></span></label>
+                  <div class="demo-folder-tools">
+                    <div class="demo-folder-line"><div><strong>Folder</strong><small>No folder selected</small><small>Not authorized</small></div><button type="button" disabled>Choose folder</button></div>
+                    <div class="demo-live-save"><div><strong>Live Save</strong><small>Automatically save updates to this folder</small></div><input type="checkbox" disabled aria-label="Live Save is available in the installed extension"></div>
+                  </div>
+                </div>
+              </div>
+              <button data-demo-export class="demo-export-button" type="button" disabled>Export selected</button>
+              <p class="demo-settings-note">Folder access and Live Save require the installed Chrome extension.</p>
+              <div class="demo-help-row"><span>☏</span> Got questions or suggestions? <span aria-hidden="true">↗</span></div>
+            </aside>
+            <div class="demo-list-pane">
+              <div class="demo-conversation-toolbar">
+                <button data-demo-sync class="demo-sync-button" type="button">Sync All</button>
+                <select data-demo-account aria-label="Sample account" disabled><option>Gemini · Demo account</option></select>
+                <label class="demo-search-box"><span aria-hidden="true">⌕</span><input data-demo-search type="search" placeholder="Search title / ID..." aria-label="Search sample conversation titles" disabled></label>
+                <select data-demo-filter aria-label="Filter sample conversations" disabled><option value="all">All</option><option value="no_record">Not exported</option><option value="has_record">Exported</option></select>
+                <span class="demo-more" aria-hidden="true">···</span>
+              </div>
+              <div class="demo-selection-row">
+                <input data-demo-select-all type="checkbox" aria-label="Select all visible sample conversations" disabled>
+                <span data-demo-selected-count>0 of 0 selected</span>
+              </div>
+              <div data-demo-chat-list class="demo-chat-list" aria-label="Example Gemini conversations"></div>
+              <span data-demo-count class="demo-a11y-count" aria-live="polite">No sample conversations synced</span>
+            </div>
           </div>
+          <div class="demo-output-panel" data-demo-result hidden>
+            <div class="demo-output-header">
+              <div><span class="demo-output-eyebrow">LOCAL EXPORT PREVIEW · FICTIONAL FILES</span><h2>Here are the files from your selection</h2><p data-demo-result-summary>Example files</p></div>
+              <span class="demo-output-check" aria-hidden="true">✓</span>
+            </div>
+            <div data-demo-result-list class="demo-output-files"></div>
+            <div class="demo-output-footer"><p data-demo-result-note>These are fictional conversations, not actual Gemini exports.</p><button type="button" data-demo-download>Download example ZIP ↓</button></div>
+          </div>
+          <div class="demo-footer"><span data-demo-status role="status" aria-live="polite">Click Sync All to load four example conversations.</span><span class="demo-private">Interactive demonstration · no account access, no upload</span></div>
         </div>
-        <p class="workflow-caption">Choose your format and destination. Sample file names are illustrations, not a real user archive.</p>
-      </div>
+        <noscript><p class="demo-noscript">The interactive demo requires JavaScript. The extension can still be installed using the button above.</p></noscript>
+      </section>
+
     </section>
 
     <div class="trust-row wrap" aria-label="Product essentials">
