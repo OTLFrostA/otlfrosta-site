@@ -3,6 +3,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { dirname, join, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { runInNewContext } from "node:vm";
 
 const siteRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../public");
 const origin = "https://otlfrosta.com";
@@ -175,6 +176,54 @@ for (const header of ["Content-Security-Policy:", "X-Content-Type-Options: nosni
 }
 
 check(read("index.html").match(/data-store-cta/g)?.length >= 2, "Expected two Chrome Web Store CTAs");
+
+// Cloudflare auto-injection uses both the plain and versioned beacon URLs.
+const scriptSrc = headers.match(/script-src ([^;]+)/)?.[1].split(/\s+/) ?? [];
+check(scriptSrc.includes("https://static.cloudflareinsights.com/beacon.min.js"),
+  "CSP must permit Cloudflare's unversioned beacon");
+check(scriptSrc.includes("https://static.cloudflareinsights.com/beacon.min.js/"),
+  "CSP must permit Cloudflare's versioned beacon path");
+check(!scriptSrc.includes("https://static.cloudflareinsights.com"),
+  "Keep the beacon CSP allowlist path-specific");
+check(headers.includes("connect-src 'self';"), "Automatic RUM submits to same-origin /cdn-cgi/rum");
+
+const utmSource = read("utm.js");
+const storeUrl = "https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&utm_medium=website&utm_campaign=hero";
+const storage = new Map();
+function runCampaign(url, blocked = false) {
+  const cta = { href: storeUrl };
+  const faq = { href: storeUrl.split("?")[0] };
+  const external = { href: "https://example.org/" };
+  const localStorage = {
+    getItem(key) { if (blocked) throw Error("storage denied"); return storage.get(key) ?? null; },
+    setItem(key, value) { if (blocked) throw Error("storage denied"); storage.set(key, value); },
+    removeItem(key) { if (blocked) throw Error("storage denied"); storage.delete(key); },
+  };
+  runInNewContext(utmSource, {
+    URL, URLSearchParams,
+    window: { location: new URL(url), localStorage },
+    document: { querySelectorAll(selector) { return selector === "a[href]" ? [cta, faq, external] : [cta]; } },
+  });
+  check(external.href === "https://example.org/", "UTM code must never modify external non-store links");
+  return { cta: new URL(cta.href), faq: new URL(faq.href) };
+}
+check(runCampaign(origin + "/").cta.href === storeUrl, "Default store campaign unchanged");
+check(storage.size === 0, "Normal visitors must not create test storage");
+check(runCampaign(origin + "/?utm_source=reddit").cta.searchParams.get("utm_source") === "reddit",
+  "Inbound UTM labels must be preserved");
+check(runCampaign(origin + "/?utm_source=%3Cscript%3E").cta.searchParams.get("utm_source") === "otlfrosta.com",
+  "Reject unsafe inbound UTM labels");
+const internal = runCampaign(origin + "/?analytics_test=1&utm_source=reddit");
+check(internal.cta.searchParams.get("utm_source") === "internal_test" &&
+  internal.faq.searchParams.get("utm_medium") === "test", "Test attribution overrides CTA and FAQ links");
+check(runCampaign(origin + "/export-all-gemini-chats").cta.searchParams.get("utm_source") === "internal_test",
+  "Explicit test mode persists across pages");
+check(runCampaign(origin + "/?analytics_test=0").cta.href === storeUrl && storage.size === 0,
+  "Explicit reset clears test mode");
+check(runCampaign(origin + "/?analytics_test=1", true).cta.searchParams.get("utm_source") === "internal_test",
+  "Explicit test mode works even if storage is blocked");
+check(runCampaign("https://preview.otlfrosta-web.pages.dev/").cta.searchParams.get("utm_source") === "internal_test",
+  "Preview clicks are always internal tests");
 
 if (errors.length) {
   for (const error of errors) console.error("FAIL " + error);
