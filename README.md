@@ -37,16 +37,20 @@ Page design is shared through `public/styles.css` and `public/guides.css`, with 
 - Site URL: `https://otlfrosta-web.pages.dev`
 - Live custom domains: `otlfrosta.com` and `www.otlfrosta.com` both belong to `otlfrosta-web`; Cloudflare DNS has proxied CNAMEs to `otlfrosta-web.pages.dev`, with an existing zone-level 301 from `www` to the apex.
 
-The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode excludes EU visitor metrics). The site uses no analytics cookies, local visitor IDs, or fingerprinting. `public/_headers` strictly allows only Cloudflare's beacon script and same-origin `/cdn-cgi/rum` reporting. No GA4 script, consent banner, external fonts, or extension telemetry. A tiny local first-party script (`public/utm.js`) copies inbound UTM values to both Chrome Web Store CTA URLs without network calls.
+The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode excludes EU visitor metrics). The site uses no analytics cookies, local visitor IDs, or fingerprinting. `public/_headers` allows Cloudflare's plain and versioned beacon paths and same-origin `/cdn-cgi/rum` reporting. No GA4 script, consent banner, external fonts, or extension telemetry. A tiny local first-party script (`public/utm.js`) copies inbound UTM values to both Chrome Web Store CTA URLs without network calls.
 
 ## X Bio short URL and attribution
 
 - `https://otlfrosta.com/x` responds with HTTP 302 to `https://otlfrosta.com/?utm_source=twitter&utm_medium=social&utm_campaign=x_bio` via `public/_redirects`.
-- The homepage CTA buttons read `utm_source`, `utm_medium`, and `utm_campaign` directly from the current URL and pass them through to the Chrome Web Store link. Values must be short ASCII campaign tokens. No cookies, local storage, or extra requests from **the UTM pass-through script itself**; Cloudflare's independently configured Web Analytics beacon is separate.
+- The homepage CTA buttons read `utm_source`, `utm_medium`, and `utm_campaign` directly from the current URL and pass them through to the Chrome Web Store link. Values must be short ASCII campaign tokens. No cookies, visitor IDs or extra requests from **the UTM pass-through script itself**. It stores a boolean only when a developer explicitly enables internal test mode; Cloudflare's independently configured Web Analytics beacon is separate.
 - When there are no incoming UTM parameters, existing default `utm_source=otlfrosta.com&utm_medium=website&utm_campaign=hero|footer` remains unchanged.
 - For new source-specific entry points, define a new path rule in `public/_redirects`, no DNS record required. Website changes belong here, not in the extension repository.
 
 This tracks campaign-level Chrome Web Store visits and installs, not X post impressions or cross-site user identities.
+
+### Internal testing
+
+Open `https://otlfrosta.com/?analytics_test=1` once on each developer browser to persist an explicit local test flag. All matching Chrome Web Store links then use `internal_test / test / website_test` instead of marketing attribution. Preview hostnames are always marked as tests. Open `https://otlfrosta.com/?analytics_test=0` to clear the flag. The flag is not a visitor identifier; normal visitors do not create it. This separates test store referrals in GA4, but does not suppress Cloudflare's automatic page-performance beacon. RUM is an approximate browser-visit baseline, not proof of a unique human.
 
 ## Separate privacy policies
 
