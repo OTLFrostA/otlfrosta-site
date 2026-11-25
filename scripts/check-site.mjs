@@ -87,7 +87,7 @@ function inspectLink(source, raw, baseURL, idsByFile) {
 
 const required = [
   "index.html", "privacy.html", "website-privacy.html",
-  "styles.css", "privacy.css", "utm.js",
+  "styles.css", "privacy.css", "utm.js", "analytics.js", "analytics.css",
   "_headers", "_redirects", "robots.txt", "sitemap.xml",
 ];
 for (const file of required) check(existsSync(join(siteRoot, file)), "Missing required file: " + file);
@@ -108,6 +108,8 @@ for (const file of htmlFiles) {
   const body = readFileSync(file, "utf8");
   const route = name === "index.html" ? "/" : "/" + name.replace(/\.html$/, "");
   const baseURL = origin + route;
+  check(body.includes("/analytics.js?v=1") && body.includes("data-analytics-consent hidden"), name + ": optional analytics controls missing");
+  check(!body.includes("googletagmanager.com/gtag/js"), name + ": Google tag must not load directly");
   const tags = body.match(/<(?:a|link|img|script|source|video|audio)\b[^>]*>/gi) || [];
   for (const tag of tags) {
     for (const key of ["href", "src"]) {
@@ -185,7 +187,7 @@ check(scriptSrc.includes("https://static.cloudflareinsights.com/beacon.min.js/")
   "CSP must permit Cloudflare's versioned beacon path");
 check(!scriptSrc.includes("https://static.cloudflareinsights.com"),
   "Keep the beacon CSP allowlist path-specific");
-check(headers.includes("connect-src 'self';"), "Automatic RUM submits to same-origin /cdn-cgi/rum");
+check(headers.includes("connect-src 'self' "), "Automatic RUM submits to same-origin /cdn-cgi/rum");
 
 const utmSource = read("utm.js");
 const storeUrl = "https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&utm_medium=website&utm_campaign=hero";

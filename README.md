@@ -37,7 +37,7 @@ Page design is shared through `public/styles.css` and `public/guides.css`, with 
 - Site URL: `https://otlfrosta-web.pages.dev`
 - Live custom domains: `otlfrosta.com` and `www.otlfrosta.com` both belong to `otlfrosta-web`; Cloudflare DNS has proxied CNAMEs to `otlfrosta-web.pages.dev`, with an existing zone-level 301 from `www` to the apex.
 
-The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode excludes EU visitor metrics). The site uses no analytics cookies, local visitor IDs, or fingerprinting. `public/_headers` allows Cloudflare's plain and versioned beacon paths and same-origin `/cdn-cgi/rum` reporting. No GA4 script, consent banner, external fonts, or extension telemetry. A tiny local first-party script (`public/utm.js`) copies inbound UTM values to both Chrome Web Store CTA URLs without network calls.
+The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode excludes EU visitor metrics). Cloudflare Web Analytics does not use analytics cookies or fingerprinting. `public/_headers` allows Cloudflare's plain and versioned beacon paths and same-origin `/cdn-cgi/rum` reporting. Optional GA4 (property 560792661, web stream 16208518519, tag G-JNJBLJPDGQ) loads only after explicit consent, with advertising features disabled. No external fonts or extension telemetry. A tiny local first-party script (`public/utm.js`) copies inbound UTM values to both Chrome Web Store CTA URLs without network calls.
 
 ## X Bio short URL and attribution
 
@@ -50,7 +50,11 @@ This tracks campaign-level Chrome Web Store visits and installs, not X post impr
 
 ### Internal testing
 
-Open `https://otlfrosta.com/?analytics_test=1` once on each developer browser to persist an explicit local test flag. All matching Chrome Web Store links then use `internal_test / test / website_test` instead of marketing attribution. Preview hostnames are always marked as tests. Open `https://otlfrosta.com/?analytics_test=0` to clear the flag. The flag is not a visitor identifier; normal visitors do not create it. This separates test store referrals in GA4, but does not suppress Cloudflare's automatic page-performance beacon. RUM is an approximate browser-visit baseline, not proof of a unique human.
+Open `https://otlfrosta.com/?analytics_test=1` once on each developer browser to persist an explicit local test flag. All matching Chrome Web Store links then use `internal_test / test / website_test` instead of marketing attribution. Preview hostnames are always marked as tests. Open `https://otlfrosta.com/?analytics_test=0` to clear the flag. The flag is not a visitor identifier; normal visitors do not create it. This separates test store referrals and suppresses the website GA4 tag, but does not suppress Cloudflare's automatic page-performance beacon. RUM is an approximate browser-visit baseline, not proof of a unique human.
+
+## Website GA4
+
+The first-party `public/analytics.js` implements basic opt-in consent, a footer preference control, and no tag on preview hosts, developer test mode, detected WebDriver, or GPC. It records standard page views plus `store_click` (not installs) and `engaged_visit` (trusted interaction and ten seconds of foreground time). The opt-in audience is a subset of website visitors; these metrics do not prove a visit is human. GA4 property data is separate from Chrome Web Store property 551943445. Review the stream's enhanced measurement and advertising settings in Analytics Admin. Do not add website tracking to the extension.
 
 ## Separate privacy policies
 
