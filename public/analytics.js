@@ -19,6 +19,7 @@
   const settings = document.querySelector("[data-analytics-settings]");
   if (!panel || !settings) return;
   let active = false;
+  let loaded = false;
   const denied = { analytics_storage: "denied", ad_storage: "denied",
     ad_user_data: "denied", ad_personalization: "denied" };
   const path = new URL(document.querySelector('link[rel="canonical"]').href).pathname;
@@ -30,6 +31,9 @@
   function enable() {
     if (active) return;
     active = true;
+    window["ga-disable-"+id] = false;
+    if (loaded) return;
+    loaded = true;
     window.dataLayer = window.dataLayer || [];
     const gtag = function () { window.dataLayer.push(arguments); };
     window.gtag = gtag;
@@ -71,6 +75,11 @@
   settings.addEventListener("click",()=>{panel.hidden=!panel.hidden;});
   window.addEventListener("storage",event=>{
     if(event.key===key && event.newValue!=="granted" && active) disable();
+    if(event.key==="otlfrosta.analytics_test" && event.newValue==="1" && active) {
+      window["ga-disable-"+id]=true;
+      active=false;
+      window.location.reload();
+    }
   });
   // Outbound store clicks are not actual installs.
   document.addEventListener("click",event=>{

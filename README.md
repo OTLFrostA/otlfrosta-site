@@ -37,7 +37,7 @@ Page design is shared through `public/styles.css` and `public/guides.css`, with 
 - Site URL: `https://otlfrosta-web.pages.dev`
 - Live custom domains: `otlfrosta.com` and `www.otlfrosta.com` both belong to `otlfrosta-web`; Cloudflare DNS has proxied CNAMEs to `otlfrosta-web.pages.dev`, with an existing zone-level 301 from `www` to the apex.
 
-The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode excludes EU visitor metrics). Cloudflare Web Analytics does not use analytics cookies or fingerprinting. `public/_headers` allows Cloudflare's plain and versioned beacon paths and same-origin `/cdn-cgi/rum` reporting. Optional GA4 (property 560792661, web stream 16208518519, tag G-JNJBLJPDGQ) loads only after explicit consent, with advertising features disabled. No external fonts or extension telemetry. A tiny local first-party script (`public/utm.js`) copies inbound UTM values to both Chrome Web Store CTA URLs without network calls.
+The Cloudflare zone has **Web Analytics auto-injection enabled** (EU Lite mode excludes EU visitor metrics). Cloudflare Web Analytics does not use analytics cookies or fingerprinting. `public/_headers` allows Cloudflare's plain and versioned beacon paths, same-origin `/cdn-cgi/rum` reporting, and Google's documented non-advertising analytics endpoints. Optional GA4 (property 560792661, web stream 16208518519, tag G-JNJBLJPDGQ) loads only after explicit consent, with advertising features disabled. No external fonts or extension telemetry. A tiny local first-party script (`public/utm.js`) copies inbound UTM values to both Chrome Web Store CTA URLs without network calls.
 
 ## X Bio short URL and attribution
 

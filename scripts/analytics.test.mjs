@@ -39,6 +39,16 @@ test("only website property, sanitized explicit location, advertising disabled, 
   a.handlers.get("accept:click")();assert.equal(a.appended.length,1);
   a.handlers.get("reject:click")();assert.equal(a.window["ga-disable-G-JNJBLJPDGQ"],true);assert.equal(a.window.reloaded,true);
 });
+test("unpersisted revocation does not load a duplicate tag on re-enable",()=>{
+  const a=boot({consent:"granted"});
+  a.window.localStorage.setItem=()=>{throw Error("blocked");};
+  a.handlers.get("reject:click")();
+  assert.equal(a.window["ga-disable-G-JNJBLJPDGQ"],true);
+  assert.equal(a.window.reloaded,undefined);
+  a.handlers.get("accept:click")();
+  assert.equal(a.window["ga-disable-G-JNJBLJPDGQ"],false);
+  assert.equal(a.appended.length,1);
+});
 test("test and privacy signals override saved opt-in",()=>{
   for(const opt of [{internal:true},{url:"https://otlfrosta.com/?analytics_test=1"},{url:"https://preview.otlfrosta-web.pages.dev/"},{gpc:true},{webdriver:true}]) {
     const a=boot({consent:"granted",...opt});assert.equal(a.appended.length,0);assert.equal(a.settings.hidden,true);
