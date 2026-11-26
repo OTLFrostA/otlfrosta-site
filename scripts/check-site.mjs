@@ -109,6 +109,8 @@ for (const file of htmlFiles) {
   const route = name === "index.html" ? "/" : "/" + name.replace(/\.html$/, "");
   const baseURL = origin + route;
   check(body.includes("/analytics.js?v=1") && body.includes("data-analytics-consent hidden"), name + ": optional analytics controls missing");
+  check(body.includes('name="color-scheme" content="light"'), name + ": expected shared light theme");
+  check(body.includes('name="theme-color" content="#ffffff"'), name + ": expected light browser chrome");
   check(!body.includes("googletagmanager.com/gtag/js"), name + ": Google tag must not load directly");
   const tags = body.match(/<(?:a|link|img|script|source|video|audio)\b[^>]*>/gi) || [];
   for (const tag of tags) {
@@ -177,7 +179,9 @@ for (const header of ["Content-Security-Policy:", "X-Content-Type-Options: nosni
   check(headers.includes(header), "_headers missing " + header);
 }
 
-check(read("index.html").match(/data-store-cta/g)?.length >= 2, "Expected two Chrome Web Store CTAs");
+check(read("index.html").match(/data-store-cta/g)?.length >= 3, "Expected navigation, hero, and closing store CTAs");
+check(read("index.html").includes('class="preview-image" src="/assets/workbench.png"'), "Homepage should show the actual Workbench in the hero");
+check(read("styles.css").includes("color-scheme:light"), "Shared CSS must use a light color scheme");
 
 // Cloudflare auto-injection uses both the plain and versioned beacon URLs.
 const scriptSrc = headers.match(/script-src ([^;]+)/)?.[1].split(/\s+/) ?? [];
