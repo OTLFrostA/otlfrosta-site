@@ -10,6 +10,7 @@
   <link rel="canonical" href="https://otlfrosta.com/">
   <link rel="icon" href="/assets/icon.png" type="image/png" sizes="128x128">
   <link rel="stylesheet" href="/styles.css?v=20261126-compact">
+  <link rel="stylesheet" href="/features.css?v=1">
   <script src="/utm.js?v=2" defer></script>
   <meta property="og:type" content="website">
   <meta property="og:title" content="Gemini Exporter — Free local Gemini chat backup">
@@ -30,7 +31,7 @@
       <span>Gemini Exporter<span class="brand-dot">.</span></span>
     </a>
     <nav class="nav" aria-label="Main navigation">
-      <a class="nav-features" href="#use-cases">Guides</a><a class="nav-how" href="#how-it-works">How it works</a><a class="nav-faq" href="#faq">FAQ</a>
+      <a class="nav-features" href="#use-cases">Features</a><a class="nav-how" href="#how-it-works">How it works</a><a class="nav-faq" href="#faq">FAQ</a>
       <a class="nav-github" href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
       <a data-store-cta class="nav-store" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=navigation" target="_blank" rel="noopener noreferrer">Add to Chrome <span aria-hidden="true">↗</span></a>
     </nav>
@@ -39,7 +40,7 @@
   <main id="main">
     <section class="hero wrap" aria-labelledby="hero-title">
       <div class="hero-copy">
-        <h1 id="hero-title">Export your <span>Gemini chats.</span></h1>
+        <h1 id="hero-title">Export &amp; back up your <span>Gemini chats.</span></h1>
         <p class="hero-subtitle">Save one chat or your entire accessible history directly to your device.</p>
         <div class="hero-actions">
           <a data-store-cta class="button button-primary" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=hero" target="_blank" rel="noopener noreferrer">
@@ -56,27 +57,83 @@
 
     <section class="use-cases wrap" id="use-cases" aria-labelledby="use-cases-title">
       <h2 id="use-cases-title">Features</h2>
-      <div class="usecase-grid" id="features">
-        <a class="usecase-card" href="/export-all-gemini-chats">
-          <svg class="usecase-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          <h3>Bulk export<span aria-hidden="true">↗</span></h3>
-          <p>Save multiple chats in one batch.</p>
+      <div id="features" class="feature-showcase">
+        <article class="feature-highlight" id="single-chat">
+          <div class="highlight-copy">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v13H9l-4 4z"/><path d="M9 8h6m-6 4h6"/></svg>
+            <h3>Single-chat export</h3>
+            <p>Open a conversation and export it in one click from the extension popup.</p>
+          </div>
+          <figure class="popup-figure">
+            <img src="/assets/quick-export-popup.png" width="360" height="296" decoding="async" alt="Real Gemini Exporter popup with format selection and Export Current Conversation button">
+          </figure>
+        </article>
+        <article class="feature-highlight feature-live" id="live-save">
+          <div class="highlight-copy">
+            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 8a7.5 7.5 0 0 1 12.6-2L20 12M4 12l1.9 6A7.5 7.5 0 0 0 18.5 16"/></svg>
+            <h3>Automatic backup</h3>
+            <p>Live Save updates Markdown files in your chosen folder as Gemini finishes replies.</p>
+            <a class="feature-detail-link" href="/automatic-gemini-chat-backup">Live Save guide <span aria-hidden="true">→</span></a>
+          </div>
+          <figure class="live-figure" aria-label="Illustration of a new reply updating a local Markdown file">
+            <div class="reply-illustration" aria-hidden="true"><div class="reply-lines"><i></i><i></i></div><div class="reply-lines reply-new"><i></i><i></i><i></i></div><span class="reply-status"><i></i> New reply</span></div>
+            <span class="live-arrow" aria-hidden="true">↓</span>
+            <div class="local-file" aria-hidden="true"><svg viewBox="0 0 32 36" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2h14l8 8v24H5zM19 2v9h8M10 17h12m-12 5h12m-12 5h8"/></svg><span><strong>Chat.md</strong><small>Updated locally</small></span><span class="file-success">✓</span></div>
+          </figure>
+        </article>
+      </div>
+      <div class="capability-grid">
+        <a class="capability-card capability-link" id="bulk-export" href="/export-all-gemini-chats">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          <h3>Bulk export<span class="capability-arrow" aria-hidden="true">↗</span></h3>
+          <p>Select many conversations and export them in one batch.</p>
+          <div class="mini-visual mini-selection" aria-hidden="true"><span><i>✓</i> Research notes</span><span><i>✓</i> Project ideas</span><span><i>✓</i> Trip planning</span></div>
         </a>
-        <a class="usecase-card" href="/import-google-takeout-gemini">
-          <svg class="usecase-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>
-          <h3>Takeout import<span aria-hidden="true">↗</span></h3>
-          <p>Turn a Google Takeout ZIP into readable files.</p>
+        <a class="capability-card capability-link" id="takeout-import" href="/import-google-takeout-gemini">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>
+          <h3>Google Takeout import<span class="capability-arrow" aria-hidden="true">↗</span></h3>
+          <p>Recover older accessible chats from an original Takeout ZIP.</p>
+          <div class="mini-visual mini-flow" aria-hidden="true"><span class="mini-file">ZIP</span><span class="flow-arrow">→</span><span class="mini-files"><i></i><i></i><i></i></span></div>
         </a>
-        <a class="usecase-card" href="/automatic-gemini-chat-backup">
-          <svg class="usecase-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 8a7.5 7.5 0 0 1 12.6-2L20 12M4 12l1.9 6A7.5 7.5 0 0 0 18.5 16"/></svg>
-          <h3>Live Save<span aria-hidden="true">↗</span></h3>
-          <p>Update local Markdown as Gemini replies.</p>
+        <a class="capability-card capability-link" id="export-formats" href="/export-gemini-chat-formats">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg>
+          <h3>Four export formats<span class="capability-arrow" aria-hidden="true">↗</span></h3>
+          <p>Keep readable documents or machine-readable archives.</p>
+          <div class="mini-visual format-tags" aria-label="PDF, Markdown, HTML and JSON"><span class="tag-pdf">PDF</span><span class="tag-md">MD</span><span class="tag-html">HTML</span><span class="tag-json">JSON</span></div>
         </a>
-        <a class="usecase-card" href="/export-gemini-chat-formats">
-          <svg class="usecase-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg>
-          <h3>Export formats<span aria-hidden="true">↗</span></h3>
-          <p>PDF, Markdown, HTML and JSON.</p>
+        <article class="capability-card" id="attachments">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13.5 15 6.4a3 3 0 0 1 4.2 4.3l-9.4 9.4a5 5 0 0 1-7.1-7.1l9.1-9.1"/></svg>
+          <h3>Images &amp; attachments</h3>
+          <p>Include available images and files alongside conversations.</p>
+          <div class="mini-visual attachment-tags" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m4 17 6-6 4 4 3-3 4 4"/><circle cx="16" cy="8" r="1.5"/></svg> image.png</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h8l4 4v14H6zM14 3v5h4"/></svg> file.pdf</span></div>
+        </article>
+        <article class="capability-card" id="incremental">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 2 2 4-4m-6 11 2 2 4-4M14 8h6m-6 9h6"/></svg>
+          <h3>Incremental backups</h3>
+          <p>Skip completed, unchanged exports and retry interrupted work.</p>
+          <div class="mini-visual state-tags" aria-hidden="true"><span class="state-complete"><i>✓</i> Exported</span><span class="state-changed"><i>↻</i> Changed</span></div>
+        </article>
+        <article class="capability-card" id="delivery">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h7l2 3h9v11H3z"/><path d="M12 12v5m-2-2 2 2 2-2"/></svg>
+          <h3>Flexible file delivery</h3>
+          <p>Download a ZIP or write files directly to a local folder.</p>
+          <div class="mini-visual delivery-tags" aria-hidden="true"><span>↓ Browser download</span><span>▱ Local folder</span></div>
+        </article>
+        <article class="capability-card" id="catalog">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+          <h3>Search &amp; organize</h3>
+          <p>Find chats by search and filter, then review export status.</p>
+        </article>
+        <a class="capability-card capability-link" id="local-privacy" href="/privacy">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.5 7 8 9 4.5-2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>Local processing<span class="capability-arrow" aria-hidden="true">↗</span></h3>
+          <p>Your conversation contents never go to a developer-operated server.</p>
         </a>
+        <article class="capability-card" id="interface">
+          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
+          <h3>Make it yours</h3>
+          <p>English and 简体中文 interface, with light and dark themes.</p>
+        </article>
       </div>
     </section>
 
@@ -101,7 +158,7 @@
         </details>
         <details>
           <summary>What if older chats are missing?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>Yes. For very large histories, or when Gemini's online conversation list stops loading older chats, download your official <a href="https://takeout.google.com/settings/takeout/custom/gemini" target="_blank" rel="noopener noreferrer">Google Takeout Gemini archive</a>. In the Workbench, choose the matching Gemini account and import the original <strong>ZIP file</strong> without extracting it. Then select and export the imported conversations. Takeout supplements online scanning, although deleted or expired content may not always be recoverable.</p></div>
+          <div class="faq-answer"><p>For very large histories, or when Gemini's online conversation list stops loading older chats, download your official <a href="https://takeout.google.com/settings/takeout/custom/gemini" target="_blank" rel="noopener noreferrer">Google Takeout Gemini archive</a>. In the Workbench, choose the matching Gemini account and import the original <strong>ZIP file</strong> without extracting it. Then select and export the imported conversations. Takeout supplements online scanning, although deleted or expired content may not always be recoverable.</p></div>
         </details>
         <details>
           <summary>Can I resume a large export?<span class="faq-plus" aria-hidden="true">+</span></summary>
