@@ -182,6 +182,7 @@ for (const header of ["Content-Security-Policy:", "X-Content-Type-Options: nosni
 check(read("index.html").match(/data-store-cta/g)?.length >= 3, "Expected navigation, hero, and closing store CTAs");
 check(read("index.html").includes('class="preview-image" src="/assets/workbench.png"'), "Homepage should show the actual Workbench in the hero");
 check(read("styles.css").includes("color-scheme:light"), "Shared CSS must use a light color scheme");
+check(!read("index.html").includes('class="feature-story"') && !read("index.html").includes('class="trust-row'), "Homepage should not repeat feature and trust sections");
 
 // Cloudflare auto-injection uses both the plain and versioned beacon URLs.
 const scriptSrc = headers.match(/script-src ([^;]+)/)?.[1].split(/\s+/) ?? [];

@@ -14,7 +14,7 @@ Preserve a practical FAQ with real current button names and content about batch 
 
 ## Search-intent guides and homepage design
 
-The homepage is a direct entry point for Google Gemini users, not a generic multi-platform product claim. It presents the three-step `Sync All → choose conversations → Export selected` flow, a clearly labeled illustrative output tree, an authentic Workbench screenshot, and four task-specific guides:
+The homepage is a direct entry point for Google Gemini users, not a generic multi-platform product claim. It uses a concise product-led hero with an authentic Workbench screenshot, four feature links, a short `Sync All → choose conversations → Export selected` flow, and a compact FAQ. Detailed explanations live in four task-specific guides:
 
 | Clean URL | Static source | Search intent |
 | --- | --- | --- |
