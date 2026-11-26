@@ -13,7 +13,7 @@ jobs:
   validate:
     name: Validate static site
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 18
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
@@ -21,10 +21,58 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Restore published demo assets
+        id: demo-cache
+        uses: actions/cache@v4
+        with:
+          path: public/demo
+          key: demo-v2.1.1-${{ hashFiles('scripts/generate-examples.cjs') }}
+      - name: Check out pinned published extension source
+        if: steps.demo-cache.outputs.cache-hit != 'true'
+        uses: actions/checkout@v4
+        with:
+          repository: OTLFrostA/gemini-exporter
+          ref: 67c7dc5eb5e4d1cac2a8cf0171bf684b1474b152
+          path: .exporter
+          persist-credentials: false
+      - name: Install pinned renderer dependencies
+        if: steps.demo-cache.outputs.cache-hit != 'true'
+        working-directory: .exporter
+        run: npm ci
+      - name: Generate actual sample exports
+        if: steps.demo-cache.outputs.cache-hit != 'true'
+        run: |
+          command -v pdftoppm >/dev/null || (sudo apt-get update && sudo apt-get install -y poppler-utils)
+          node -r ./.exporter/tests/ts_register.js scripts/generate-examples.cjs .exporter public/demo
+      - name: Build extension and install sandboxed Chromium
+        if: steps.demo-cache.outputs.cache-hit != 'true'
+        working-directory: .exporter
+        run: |
+          npm run build
+          npx playwright install --with-deps chromium
+          bash scripts/setup-playwright-sandbox.sh
+      - name: Capture real extension UI using synthetic fixture conversations
+        if: steps.demo-cache.outputs.cache-hit != 'true'
+        working-directory: .exporter
+        env:
+          CAPTURE_README_SCREENSHOTS: '1'
+        run: |
+          npx playwright test tests/e2e/readme_screenshots.spec.ts --workers=1
+          cp store_assets/screenshot_1_1280x800.png ../public/demo/workbench.png
+          cp store_assets/screenshot_popup_v2.png ../public/demo/popup.png
+      - name: Validate demo artifacts
+        run: node scripts/check-demo.mjs
       - name: Validate UTM script syntax
         run: node --check public/utm.js && node --check public/analytics.js && node --test scripts/analytics.test.mjs
       - name: Validate deployed website
         run: node scripts/check-site.mjs
+      - name: Upload validated demo assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: released-demo-assets
+          path: public/demo/
+          if-no-files-found: error
+          retention-days: 7
 
   deploy:
     name: Deploy to Cloudflare Pages
@@ -42,6 +90,11 @@ jobs:
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
+      - name: Download validated demo assets
+        uses: actions/download-artifact@v4
+        with:
+          name: released-demo-assets
+          path: public/demo
       - name: Verify deployment secrets
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
