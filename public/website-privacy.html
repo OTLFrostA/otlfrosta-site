@@ -16,6 +16,9 @@
   <meta property="og:description" content="Information about website traffic, Cloudflare Web Analytics, and outbound links.">
   <meta property="og:url" content="https://otlfrosta.com/website-privacy">
   <title>Website Privacy Policy | OTLFrostA</title>
+  <script defer src="/utm.js?v=2"></script>
+  <link rel="stylesheet" href="/analytics.css?v=1">
+  <script defer src="/analytics.js?v=1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -56,9 +59,9 @@
       </section>
 
       <section aria-labelledby="en-analytics">
-        <h3 id="en-analytics">2. Cookie-free Cloudflare Web Analytics</h3>
+        <h3 id="en-analytics">2. Website analytics</h3>
         <p>We use <a href="https://developers.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer">Cloudflare Web Analytics</a> for aggregated information about visits and site performance, such as page views, referring websites, approximate country, browser or device categories, and page load performance. Web Analytics does not use analytics cookies, Local Storage, or browser fingerprinting.</p>
-        <p>Under our current Cloudflare EU Lite configuration, European Union visitor metrics are excluded from Web Analytics. We do not use Google Analytics (GA4) or an advertising tracker on this website. We do not collect or analyze the contents of your AI conversations through this website.</p>
+        <p>Under our current Cloudflare EU Lite configuration, European Union visitor metrics are excluded from Web Analytics. We also offer optional Google Analytics 4 (GA4), loaded only if you choose Allow analytics. GA4 can use first-party analytics cookies to measure page views, traffic sources, engagement and store-link clicks. Google receives website measurement data including device, approximate location and referring website information. Advertising personalization and Google signals are disabled in our tag configuration. Use Analytics preferences in the footer to withdraw consent and clear this site's GA cookies. Global Privacy Control, developer test mode and detected WebDriver browsers do not load our GA4 tag. Cloudflare Web Analytics remains separate. We do not collect or analyze the contents of your AI conversations through this website.</p>
       </section>
 
       <section aria-labelledby="en-infrastructure">
@@ -89,9 +92,9 @@
       </section>
 
       <section aria-labelledby="zh-analytics">
-        <h3 id="zh-analytics">2. 不使用分析 Cookie 的 Cloudflare Web Analytics</h3>
+        <h3 id="zh-analytics">2. 网站访问统计</h3>
         <p>我们使用 <a href="https://developers.cloudflare.com/web-analytics/" target="_blank" rel="noopener noreferrer">Cloudflare Web Analytics</a> 获取汇总的访问与性能数据，包括页面浏览量、来源网站、大致国家、浏览器及设备类别和页面加载性能。Web Analytics 不使用分析 Cookie、Local Storage 或浏览器指纹。</p>
-        <p>根据目前启用的 Cloudflare EU Lite 设置，欧盟访客的 Web Analytics 数据被排除。官网不使用 Google Analytics（GA4）或广告追踪器，也不会通过官网分析或收集您的 AI 对话内容。</p>
+        <p>根据目前启用的 Cloudflare EU Lite 设置，欧盟访客的 Web Analytics 数据被排除。官网还提供可选的 Google Analytics 4（GA4），仅在您主动选择 Allow analytics 后加载。GA4 可使用第一方分析 Cookie 统计页面浏览、流量来源、互动和商店链接点击，Google 会收到设备、大致位置及来源网站等网站测量信息。标签配置关闭广告个性化与 Google Signals。您可以通过页脚 Analytics preferences 撤回同意并清除本站 GA Cookie。启用 Global Privacy Control、开发者测试模式或检测到 WebDriver 时不会加载本站 GA4 标签。Cloudflare Web Analytics 独立运行。官网不会分析或收集您的 AI 对话内容。</p>
       </section>
 
       <section aria-labelledby="zh-infrastructure">
@@ -124,6 +127,15 @@
       </div>
     </div>
     <p>Independent open-source project. Not affiliated with Google or other AI providers.</p>
+    <p><button class="analytics-settings" type="button" data-analytics-settings hidden>Analytics preferences</button></p>
   </footer>
+  <aside class="analytics-consent" data-analytics-consent hidden aria-label="Optional website analytics">
+    <strong>Optional website analytics</strong>
+    <p>Allow Google Analytics to measure visits and store-link clicks using analytics cookies? This is separate from the extension. No advertising tracking. <a href="/website-privacy">Privacy details</a>.</p>
+    <div class="analytics-consent-actions">
+      <button type="button" data-analytics-accept>Allow analytics</button>
+      <button type="button" data-analytics-reject>No thanks</button>
+    </div>
+  </aside>
 </body>
 </html>

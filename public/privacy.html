@@ -16,6 +16,9 @@
   <meta property="og:description" content="Gemini Exporter processes conversations locally, without developer-operated tracking or upload servers.">
   <meta property="og:url" content="https://otlfrosta.com/privacy">
   <title>Extension Privacy Policy | Gemini Exporter</title>
+  <script defer src="/utm.js?v=2"></script>
+  <link rel="stylesheet" href="/analytics.css?v=1">
+  <script defer src="/analytics.js?v=1"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -152,6 +155,15 @@
       </div>
     </div>
     <p>Independent open-source project. Not affiliated with Google or other AI providers.</p>
+    <p><button class="analytics-settings" type="button" data-analytics-settings hidden>Analytics preferences</button></p>
   </footer>
+  <aside class="analytics-consent" data-analytics-consent hidden aria-label="Optional website analytics">
+    <strong>Optional website analytics</strong>
+    <p>Allow Google Analytics to measure visits and store-link clicks using analytics cookies? This is separate from the extension. No advertising tracking. <a href="/website-privacy">Privacy details</a>.</p>
+    <div class="analytics-consent-actions">
+      <button type="button" data-analytics-accept>Allow analytics</button>
+      <button type="button" data-analytics-reject>No thanks</button>
+    </div>
+  </aside>
 </body>
 </html>

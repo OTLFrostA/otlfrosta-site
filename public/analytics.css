@@ -1,0 +1,8 @@
+.analytics-consent[hidden], .analytics-settings[hidden] { display: none !important; }
+.analytics-consent { position: fixed; z-index: 20; bottom: 16px; right: 16px; width: min(390px, calc(100vw - 32px)); padding: 18px; border: 1px solid #525a72; border-radius: 12px; background: #141925; color: #f3f5fb; box-shadow: 0 8px 28px #0008; font: 14px/1.5 system-ui, sans-serif; }
+.analytics-consent strong { display: block; margin-bottom: 6px; }
+.analytics-consent p { margin: 0 0 12px; }
+.analytics-consent a { text-decoration: underline; }
+.analytics-consent-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.analytics-consent button { font: inherit; color: inherit; background: #242d40; border: 1px solid #71809a; border-radius: 6px; padding: 7px 12px; cursor: pointer; }
+.analytics-settings { font: inherit; background: none; color: inherit; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
