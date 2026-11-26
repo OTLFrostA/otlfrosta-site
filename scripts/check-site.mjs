@@ -86,8 +86,8 @@ function inspectLink(source, raw, baseURL, idsByFile) {
 }
 
 const required = [
-  "index.html", "privacy.html", "website-privacy.html",
-  "styles.css", "privacy.css", "utm.js", "analytics.js", "analytics.css",
+  "index.html", "features.html", "examples.html", "guides.html", "changelog.html", "privacy.html", "website-privacy.html",
+  "styles.css", "product.css", "privacy.css", "utm.js", "analytics.js", "analytics.css",
   "_headers", "_redirects", "robots.txt", "sitemap.xml",
 ];
 for (const file of required) check(existsSync(join(siteRoot, file)), "Missing required file: " + file);
@@ -143,6 +143,10 @@ const locs = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map((match) =>
 check(locs.length === new Set(locs).size, "Duplicate sitemap URLs");
 for (const [file, route] of [
   ["index.html", "/"],
+  ["features.html", "/features"],
+  ["examples.html", "/examples"],
+  ["guides.html", "/guides"],
+  ["changelog.html", "/changelog"],
   ["privacy.html", "/privacy"],
   ["website-privacy.html", "/website-privacy"],
 ]) {
@@ -180,14 +184,13 @@ for (const header of ["Content-Security-Policy:", "X-Content-Type-Options: nosni
 }
 
 check(read("index.html").match(/data-store-cta/g)?.length >= 3, "Expected navigation, hero, and closing store CTAs");
-check(read("index.html").includes('class="preview-image" src="/assets/workbench.png"'), "Homepage should show the actual Workbench in the hero");
-check(read("styles.css").includes("color-scheme:light"), "Shared CSS must use a light color scheme");
-check(!read("index.html").includes('class="feature-story"') && !read("index.html").includes('class="trust-row'), "Homepage should not repeat feature and trust sections");
 const homepage = read("index.html");
-for (const id of ["single-chat","live-save","bulk-export","takeout-import","export-formats","attachments","incremental","delivery","catalog","local-privacy","interface"]) {
-  check(homepage.includes('id="' + id + '"'), "Missing homepage capability: " + id);
-}
-check(homepage.includes('/assets/quick-export-popup.png'), "Homepage should show the real single-chat popup");
+check(homepage.includes("/demo/workbench.png") && homepage.includes("/demo/popup.png"), "Homepage requires real fixture screenshots");
+check(homepage.includes("/demo/pdf-preview.png"), "Homepage requires an actual rendered PDF preview");
+check(read("styles.css").includes("color-scheme:light"), "Shared CSS must use a light color scheme");
+for (const id of ["tour-quick","tour-bulk","tour-live","use-cases","features","live-save","how-it-works","faq"]) check(homepage.includes('id="' + id + '"'), "Missing product workflow: " + id);
+for (const tab of ["tour-quick","tour-bulk","tour-live"]) check(homepage.includes('for="' + tab + '"') && homepage.includes('id="' + tab + '"'), "Tour radio and label must match: " + tab);
+for (const file of ["solar-energy.pdf","solar-energy.docx","solar-energy.md","solar-energy-html.zip","solar-energy.json","solar-energy.zip"]) check(read("examples.html").includes("/demo/"+file), "Missing example download: "+file);
 
 // Cloudflare auto-injection uses both the plain and versioned beacon URLs.
 const scriptSrc = headers.match(/script-src ([^;]+)/)?.[1].split(/\s+/) ?? [];

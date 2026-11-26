@@ -5,202 +5,135 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#ffffff">
-  <meta name="description" content="Export all Gemini chats with a free, open-source Chrome extension. Save Google Gemini conversations to Markdown, PDF, HTML or JSON, import Takeout ZIP files and enable local Markdown backups.">
+  <meta name="description" content="Export Google Gemini conversations to PDF, Word, Markdown, HTML or JSON. Bulk export chat history, import Takeout ZIPs and automatically back up Markdown locally.">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://otlfrosta.com/">
   <link rel="icon" href="/assets/icon.png" type="image/png" sizes="128x128">
   <link rel="stylesheet" href="/styles.css?v=20261126-compact">
-  <link rel="stylesheet" href="/features.css?v=2">
-  <script src="/utm.js?v=2" defer></script>
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Gemini Exporter — Free local Gemini chat backup">
-  <meta property="og:site_name" content="Gemini Exporter">
-  <meta property="og:description" content="Bulk-export Gemini conversations, import Google Takeout archives, and save local Markdown, PDF, HTML or JSON files. Free and open source.">
-  <meta property="og:url" content="https://otlfrosta.com/">
-  <meta property="og:image" content="https://otlfrosta.com/assets/workbench.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <title>Gemini Exporter — Free Local Gemini Chat Backup &amp; Export</title>
+  <link rel="stylesheet" href="/product.css?v=1">
   <link rel="stylesheet" href="/analytics.css?v=20261126-light">
+  <script src="/utm.js?v=2" defer></script>
   <script defer src="/analytics.js?v=1"></script>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gemini Exporter — Free Gemini Chat Export &amp; Local Backup">
+  <meta property="og:site_name" content="Gemini Exporter">
+  <meta property="og:description" content="Export Google Gemini conversations to PDF, Word, Markdown, HTML or JSON. Bulk export chat history, import Takeout ZIPs and automatically back up Markdown locally.">
+  <meta property="og:url" content="https://otlfrosta.com/">
+  <meta property="og:image" content="https://otlfrosta.com/demo/workbench.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Gemini Exporter — Free Gemini Chat Export &amp; Local Backup</title>
 </head>
-<body>
+<body class="product-page home-page">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header wrap" id="top">
-    <a class="brand" href="/" aria-label="Gemini Exporter homepage">
-      <img class="brand-icon" src="/assets/icon.png" width="32" height="32" alt="">
-      <span>Gemini Exporter<span class="brand-dot">.</span></span>
-    </a>
-    <nav class="nav" aria-label="Main navigation">
-      <a class="nav-features" href="#use-cases">Features</a><a class="nav-how" href="#how-it-works">How it works</a><a class="nav-faq" href="#faq">FAQ</a>
-      <a class="nav-github" href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
-      <a data-store-cta class="nav-store" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=navigation" target="_blank" rel="noopener noreferrer">Add to Chrome <span aria-hidden="true">↗</span></a>
+  <header class="site-header product-header wrap" id="top">
+    <a class="brand" href="/" aria-label="Gemini Exporter homepage"><img class="brand-icon" src="/assets/icon.png" width="32" height="32" alt=""><span>Gemini Exporter</span></a>
+    <nav class="nav product-nav" aria-label="Main navigation">
+      <a href="/features">Features</a>
+      <a href="/examples">Examples</a>
+      <a href="/guides">Guides</a>
+      <a href="/changelog">Changelog</a>
+      <a class="product-github" href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
     </nav>
+    <a data-store-cta class="nav-store product-nav-store" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=navigation" target="_blank" rel="noopener noreferrer">Add to Chrome<span aria-hidden="true">↗</span></a>
   </header>
-
   <main id="main">
-    <section class="hero wrap" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <h1 id="hero-title">Export your <span>Gemini chats.</span></h1>
-        <p class="hero-subtitle">Save a single chat or back up your accessible history directly to your device.</p>
-        <div class="hero-actions">
-          <a data-store-cta class="button button-primary" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=hero" target="_blank" rel="noopener noreferrer">
-            <svg class="chrome-icon" aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#fff"/><circle cx="12" cy="12" r="4.6" fill="#4285f4"/><path d="M11.2 2a10 10 0 0 1 9.5 5.5h-9l-2 3.3-4.8-7.1A9.9 9.9 0 0 1 11.2 2Z" fill="#fbbc04"/><path d="M2.4 9.3a10 10 0 0 0 8.6 12.6l4.4-7.6h-4.2L6.8 6.9 2.4 9.3Z" fill="#34a853"/><path d="M20.7 7.5a10 10 0 0 1-8.1 14.4l4.1-7.2-2.2-3.7 1.9-3.5h4.3Z" fill="#ea4335"/></svg>
-            Add to Chrome <span aria-hidden="true">↗</span>
-          </a>
-        </div>
-        <p class="availability">Free · Open source · No extension telemetry</p>
+    <section class="home-hero wrap" aria-labelledby="hero-title">
+      <div class="hero-title-group">
+        <h1 id="hero-title">Your Gemini chats,<br> <span>yours to keep.</span></h1>
+        <p>Export conversations as useful files. Keep your chat history backed up on your own device.</p>
+        <div class="product-actions"><a data-store-cta class="button button-primary" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=hero" target="_blank" rel="noopener noreferrer">Add to Chrome<span aria-hidden="true">↗</span></a><a class="text-link" href="/examples">See export examples <span aria-hidden="true">→</span></a></div>
+        <p class="hero-trust">Free <span>·</span> Open source <span>·</span> No extension telemetry</p>
       </div>
-      <figure class="product-preview">
-        <img class="preview-image" src="/assets/workbench.png" width="1280" height="800" fetchpriority="high" decoding="async" alt="Gemini Exporter Workbench showing conversation selection, Sync All and export options">
+      <fieldset class="product-tour">
+        <legend class="sr-only">Explore the product</legend>
+        <input class="tour-radio" type="radio" id="tour-quick" name="product-tour" checked>
+        <input class="tour-radio" type="radio" id="tour-bulk" name="product-tour">
+        <input class="tour-radio" type="radio" id="tour-live" name="product-tour">
+        <div class="tour-tabs"><label for="tour-quick"><svg class="line-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg> Quick export</label><label for="tour-bulk"><svg class="line-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v13h14V8m-10 4h6"/></svg> Bulk export</label><label for="tour-live"><svg class="line-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 8a7.5 7.5 0 0 1 12.6-2L20 12M4 12l1.9 6A7.5 7.5 0 0 0 18.5 16"/></svg> Auto backup</label></div>
+        <div class="tour-stage">
+          <div class="tour-panel tour-quick">
+            <div class="tour-quick-visual">
+              <div class="demo-chat tour-conversation"><div class="demo-window-bar"><span class="demo-dot"></span> Gemini</div><div class="demo-user">How can I organize my AI notes?</div><div class="demo-answer"><span class="demo-sparkle">✦</span><div><strong>Organizing my AI notes</strong><p>Group useful answers by topic, save them as files, and link related ideas.</p><div class="demo-equation">Research · Projects · Learning</div></div></div></div>
+              <figure class="tour-popup"><img class="popup-image" src="/demo/popup.png" width="360" height="296" fetchpriority="high" decoding="async" alt="Actual Gemini Exporter quick-export popup, captured with anonymous demo data"></figure>
+              <div class="tour-output"><div class="format-summary"><span class="file-chip file-pdf"><span class="file-fold" aria-hidden="true"></span><strong>PDF</strong></span><span class="file-chip file-docx"><span class="file-fold" aria-hidden="true"></span><strong>Word</strong></span><span class="file-chip file-md"><span class="file-fold" aria-hidden="true"></span><strong>Markdown</strong></span><span class="file-chip file-html"><span class="file-fold" aria-hidden="true"></span><strong>HTML</strong></span><span class="file-chip file-json"><span class="file-fold" aria-hidden="true"></span><strong>JSON</strong></span></div><span class="tour-output-caption">Files on your device</span></div>
+            </div>
+            <p class="tour-caption">Open a chat, choose a format, export the current conversation. Flow illustration with the actual extension popup.</p>
+          </div>
+          <div class="tour-panel tour-bulk"><div class="tour-workbench"><img src="/demo/workbench.png" width="1280" height="800" fetchpriority="high" decoding="async" alt="Actual Gemini Exporter Workbench with anonymous demo conversations"></div><p class="tour-caption">Scan, select and export the conversations you want.</p></div>
+          <div class="tour-panel tour-live"><div class="live-demo" aria-label="Illustration: a completed Gemini reply updates a local Markdown file">
+  <div class="demo-chat"><div class="demo-window-bar"><span class="demo-dot"></span>Gemini <span class="muted-label">Example conversation</span></div>
+    <div class="demo-user">What can I do with my AI notes?</div>
+    <div class="demo-answer"><span class="demo-sparkle">✦</span><div><strong>Build a personal knowledge base.</strong><p>Keep useful answers as searchable files, connect related ideas, and revisit them later.</p></div></div>
+    <div class="new-reply"><i></i> Reply complete</div>
+  </div>
+  <div class="demo-connector" aria-hidden="true"><span>Live Save</span><span class="connector-line"></span><span class="connector-arrow">→</span></div>
+  <div class="demo-folder"><div class="demo-window-bar"><svg class="line-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h7l2 3h9v11H3z"/></svg> Gemini Backups</div><div class="folder-file"><span class="file-chip file-md"><span class="file-fold" aria-hidden="true"></span><strong>MD</strong></span><span><strong>AI notes.md</strong><small>Local Markdown</small></span><span class="save-state"><i></i> Updated</span></div><div class="folder-lines" aria-hidden="true"><span></span><span></span><span></span></div></div>
+</div><p class="tour-caption">Live Save updates local Markdown when a reply finishes. Illustration.</p></div>
+        </div>
+      </fieldset>
+    </section>
+    <section class="product-section wrap" id="use-cases" aria-labelledby="export-title">
+      <div class="section-copy">
+        <p class="product-eyebrow">Export</p>
+        <h2 id="export-title">From conversation<br> to document.</h2>
+        <p class="section-lead">Save a single chat in one click, or export a batch. Keep the details that make your conversations useful.</p>
+        <div class="format-summary"><span class="file-chip file-pdf"><span class="file-fold" aria-hidden="true"></span><strong>PDF</strong></span><span class="file-chip file-docx"><span class="file-fold" aria-hidden="true"></span><strong>Word</strong></span><span class="file-chip file-md"><span class="file-fold" aria-hidden="true"></span><strong>Markdown</strong></span><span class="file-chip file-html"><span class="file-fold" aria-hidden="true"></span><strong>HTML</strong></span><span class="file-chip file-json"><span class="file-fold" aria-hidden="true"></span><strong>JSON</strong></span></div>
+        <ul class="product-checks"><li>Math, tables and code blocks</li><li>Available images and original attachments</li><li>Offline files you can read or reuse</li></ul>
+        <a class="text-link" href="/examples">Explore real export examples <span aria-hidden="true">→</span></a>
+      </div>
+      <figure class="export-preview">
+        <div class="preview-toolbar"><span class="preview-file"><span class="file-chip file-pdf"><span class="file-fold" aria-hidden="true"></span><strong>PDF</strong></span> solar-energy.pdf</span><a href="/demo/solar-energy.pdf" target="_blank" rel="noopener noreferrer">Open PDF ↗</a></div>
+        <a href="/demo/solar-energy.pdf" target="_blank" rel="noopener noreferrer" class="preview-paper"><img src="/demo/pdf-preview.png" width="840" height="1188" loading="lazy" decoding="async" alt="First page of the genuine PDF export of the synthetic solar-energy conversation"></a>
+        <figcaption>Generated by the published v2.1.1 PDF renderer from a synthetic conversation.</figcaption>
       </figure>
     </section>
-
-    <section class="use-cases wrap" id="use-cases" aria-labelledby="use-cases-title">
-      <h2 id="use-cases-title">Features</h2>
-      <div id="features" class="feature-showcase">
-        <article class="feature-highlight" id="single-chat">
-          <div class="highlight-copy">
-            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h14v13H9l-4 4z"/><path d="M9 8h6m-6 4h6"/></svg>
-            <h3>Single-chat export</h3>
-            <p>Open a conversation and export it in one click from the extension popup.</p>
-          </div>
-          <figure class="popup-figure">
-            <img src="/assets/quick-export-popup.png" width="360" height="296" decoding="async" alt="Real Gemini Exporter popup with format selection and Export Current Conversation button">
-          </figure>
-        </article>
-        <article class="feature-highlight feature-live" id="live-save">
-          <div class="highlight-copy">
-            <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5"/><path d="M5.5 8a7.5 7.5 0 0 1 12.6-2L20 12M4 12l1.9 6A7.5 7.5 0 0 0 18.5 16"/></svg>
-            <h3>Automatic backup</h3>
-            <p>Live Save updates Markdown files in your chosen folder as Gemini finishes replies.</p>
-            <a class="feature-detail-link" href="/automatic-gemini-chat-backup">Live Save guide <span aria-hidden="true">→</span></a>
-          </div>
-          <figure class="live-figure" aria-label="Illustration of a new reply updating a local Markdown file">
-            <div class="reply-illustration" aria-hidden="true"><div class="reply-lines"><i></i><i></i></div><div class="reply-lines reply-new"><i></i><i></i><i></i></div><span class="reply-status"><i></i> New reply</span></div>
-            <span class="live-arrow" aria-hidden="true">↓</span>
-            <div class="local-file" aria-hidden="true"><svg viewBox="0 0 32 36" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 2h14l8 8v24H5zM19 2v9h8M10 17h12m-12 5h12m-12 5h8"/></svg><span><strong>Chat.md</strong><small>Updated locally</small></span><span class="file-success">✓</span></div>
-          </figure>
-        </article>
-      </div>
-      <div class="capability-grid">
-        <a class="capability-card capability-link" id="bulk-export" href="/export-all-gemini-chats">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-          <h3>Bulk export<span class="capability-arrow" aria-hidden="true">↗</span></h3>
-          <p>Select many conversations and export them in one batch.</p>
-          <div class="mini-visual mini-selection" aria-hidden="true"><span><i>✓</i> Research notes</span><span><i>✓</i> Project ideas</span><span><i>✓</i> Trip planning</span></div>
-        </a>
-        <a class="capability-card capability-link" id="takeout-import" href="/import-google-takeout-gemini">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></svg>
-          <h3>Google Takeout import<span class="capability-arrow" aria-hidden="true">↗</span></h3>
-          <p>Import older chats from the original ZIP without extracting it.</p>
-          <div class="mini-visual mini-flow" aria-hidden="true"><span class="mini-file">ZIP</span><span class="flow-arrow">→</span><span class="mini-files"><i></i><i></i><i></i></span></div>
-        </a>
-        <a class="capability-card capability-link" id="export-formats" href="/export-gemini-chat-formats">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6m-6 4h6"/></svg>
-          <h3>Four export formats<span class="capability-arrow" aria-hidden="true">↗</span></h3>
-          <p>Keep readable documents or machine-readable archives.</p>
-          <div class="mini-visual format-tags" aria-label="PDF, Markdown, HTML and JSON"><span class="tag-pdf">PDF</span><span class="tag-md">Markdown</span><span class="tag-html">HTML</span><span class="tag-json">JSON</span></div>
-        </a>
-        <article class="capability-card" id="attachments">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13.5 15 6.4a3 3 0 0 1 4.2 4.3l-9.4 9.4a5 5 0 0 1-7.1-7.1l9.1-9.1"/></svg>
-          <h3>Images &amp; attachments</h3>
-          <p>Include available images and files alongside conversations.</p>
-          <div class="mini-visual attachment-tags" aria-hidden="true"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m4 17 6-6 4 4 3-3 4 4"/><circle cx="16" cy="8" r="1.5"/></svg> image.png</span><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6 3h8l4 4v14H6zM14 3v5h4"/></svg> file.pdf</span></div>
-        </article>
-        <article class="capability-card" id="incremental">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 8 2 2 4-4m-6 11 2 2 4-4M14 8h6m-6 9h6"/></svg>
-          <h3>Incremental backups</h3>
-          <p>Skip completed, unchanged exports and retry interrupted work.</p>
-          <div class="mini-visual state-tags" aria-hidden="true"><span class="state-complete"><i>✓</i> Exported</span><span class="state-changed"><i>↻</i> Changed</span></div>
-        </article>
-        <article class="capability-card" id="delivery">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h7l2 3h9v11H3z"/><path d="M12 12v5m-2-2 2 2 2-2"/></svg>
-          <h3>Downloads &amp; folders</h3>
-          <p>Download a ZIP or write files directly to a local folder.</p>
-          <div class="mini-visual delivery-tags" aria-hidden="true"><span>↓ Browser download</span><span>▱ Local folder</span></div>
-        </article>
-        <article class="capability-card" id="catalog">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
-          <h3>Search &amp; filter</h3>
-          <p>Find conversations and review their export status.</p>
-        </article>
-        <a class="capability-card capability-link" id="local-privacy" href="/privacy">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.5 7 8 9 4.5-2 8-4.5 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
-          <h3>Local processing<span class="capability-arrow" aria-hidden="true">↗</span></h3>
-          <p>Your conversation contents never go to a developer-operated server.</p>
-        </a>
-        <article class="capability-card" id="interface">
-          <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none"/></svg>
-          <h3>Languages &amp; themes</h3>
-          <p>English and 简体中文 interface, with light and dark themes.</p>
-        </article>
+    <section class="backup-band" id="features">
+      <div class="wrap backup-inner">
+        <div class="center-heading"><p class="product-eyebrow">Backup</p><h2>Keep your entire chat history.</h2><p class="section-lead">Find conversations in one Workbench, and save the history your account makes accessible.</p></div>
+        <figure class="workbench-frame"><img src="/demo/workbench.png" width="1280" height="800" loading="lazy" decoding="async" alt="Real extension Workbench with demo account, conversation selection, search, filters and export status"><figcaption>Actual Workbench · anonymous demo conversations</figcaption></figure>
+        <div class="backup-details">
+          <div><h3>Find &amp; select</h3><p>Search and filter your synced conversation catalog.</p></div>
+          <div><h3>Save incrementally</h3><p>Skip completed, unchanged exports and retry interrupted work.</p></div>
+          <div><h3>Import older chats</h3><p>Supplement online history with a Google Takeout ZIP.</p><a class="text-link" href="/import-google-takeout-gemini">Takeout guide →</a></div>
+        </div>
+        <a class="text-link backup-more" href="/features#history">Explore backup features →</a>
       </div>
     </section>
-
-    <section class="quickstart wrap" id="how-it-works" aria-labelledby="quickstart-title">
-      <h2 id="quickstart-title">How it works</h2>
-      <ol class="quickstart-list">
-        <li><span class="quickstart-num" aria-hidden="true">1</span><div><h3>Sync</h3><p>Install, allow Gemini site access, then click <strong>Sync All</strong>.</p></div></li>
-        <li><span class="quickstart-num" aria-hidden="true">2</span><div><h3>Select</h3><p>Choose conversations, a format and a destination.</p></div></li>
-        <li><span class="quickstart-num" aria-hidden="true">3</span><div><h3>Export</h3><p>Click <strong>Export selected</strong> to save your files.</p></div></li>
-      </ol>
+    <section class="product-section wrap live-section" id="live-save">
+      <div class="section-copy"><p class="product-eyebrow">Live Save</p><h2>New replies,<br> automatically backed up.</h2><p class="section-lead">Choose a local folder and let Live Save keep Markdown up to date while you use Gemini.</p><a class="text-link" href="/automatic-gemini-chat-backup">Set up automatic backup →</a></div>
+      <div class="live-demo" aria-label="Illustration: a completed Gemini reply updates a local Markdown file">
+  <div class="demo-chat"><div class="demo-window-bar"><span class="demo-dot"></span>Gemini <span class="muted-label">Example conversation</span></div>
+    <div class="demo-user">What can I do with my AI notes?</div>
+    <div class="demo-answer"><span class="demo-sparkle">✦</span><div><strong>Build a personal knowledge base.</strong><p>Keep useful answers as searchable files, connect related ideas, and revisit them later.</p></div></div>
+    <div class="new-reply"><i></i> Reply complete</div>
+  </div>
+  <div class="demo-connector" aria-hidden="true"><span>Live Save</span><span class="connector-line"></span><span class="connector-arrow">→</span></div>
+  <div class="demo-folder"><div class="demo-window-bar"><svg class="line-icon " viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h7l2 3h9v11H3z"/></svg> Gemini Backups</div><div class="folder-file"><span class="file-chip file-md"><span class="file-fold" aria-hidden="true"></span><strong>MD</strong></span><span><strong>AI notes.md</strong><small>Local Markdown</small></span><span class="save-state"><i></i> Updated</span></div><div class="folder-lines" aria-hidden="true"><span></span><span></span><span></span></div></div>
+</div>
     </section>
-
-    <section class="faq-section wrap" id="faq" aria-labelledby="faq-title">
-      <div class="faq-intro">
-        <h2 id="faq-title">FAQ</h2>
-        <a class="guide-link" href="https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener noreferrer">Full user guide <span aria-hidden="true">↗</span></a>
-      </div>
+    <section class="privacy-band wrap" aria-labelledby="privacy-title">
+      <div class="privacy-copy"><p class="product-eyebrow">Privacy</p><h2 id="privacy-title">Your data stays yours.</h2><p class="section-lead">The extension processes conversations inside your browser. No conversation upload to our servers, no exporter account, and no API key.</p><div class="privacy-links"><a class="text-link" href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">Inspect the code →</a><a class="text-link" href="/privacy">Privacy policy →</a></div></div>
+      <div class="privacy-flow" aria-label="Data flow: Gemini to your browser to your files"><div><svg class="line-icon large-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v13H9l-5 4z"/><path d="M8 8h8m-8 4h8"/></svg><strong>Gemini</strong></div><span aria-hidden="true">→</span><div><svg class="line-icon large-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="12" rx="2"/><path d="m4 16-2 4h20l-2-4"/></svg><strong>Your browser</strong></div><span aria-hidden="true">→</span><div><svg class="line-icon large-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 6h7l2 3h9v11H3z"/></svg><strong>Your files</strong></div></div>
+    </section>
+    <section class="getting-started wrap" id="how-it-works" aria-labelledby="start-title"><h2 id="start-title">Get started</h2><div class="start-steps"><div><span>1</span><h3>Install</h3><p>Allow site access to Gemini.</p></div><div><span>2</span><h3>Choose chats</h3><p>Open a chat or sync the Workbench.</p></div><div><span>3</span><h3>Export</h3><p>Select a format and destination.</p></div></div><a class="text-link" href="/guides">Browse step-by-step guides →</a></section>
+    <section class="faq-section wrap product-faq" id="faq" aria-labelledby="faq-title">
+      <div class="faq-intro"><h2 id="faq-title">Questions?</h2><a class="guide-link" href="/guides">All guides →</a></div>
       <div class="faq-list">
-        <details>
-          <summary>Can I export my entire Gemini history?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>Install Gemini Exporter from the <a href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>, authorize access to Gemini, and open the extension’s <strong>Workbench</strong>. Click <strong>Sync All</strong> to scan the available conversation list, select all conversations, choose a format and destination, then click <strong>Export selected</strong>. Sync All discovers conversations; Export selected creates the actual backup files.</p></div>
-        </details>
-        <details>
-          <summary>What if older chats are missing?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>For very large histories, or when Gemini's online conversation list stops loading older chats, download your official <a href="https://takeout.google.com/settings/takeout/custom/gemini" target="_blank" rel="noopener noreferrer">Google Takeout Gemini archive</a>. In the Workbench, choose the matching Gemini account and import the original <strong>ZIP file</strong> without extracting it. Then select and export the imported conversations. Takeout supplements online scanning, although deleted or expired content may not always be recoverable.</p></div>
-        </details>
-        <details>
-          <summary>Can I resume a large export?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>For a large backup, select <strong>Save to local folder</strong> instead of Browser download. Files are written directly to the folder, so the extension does not have to assemble a large browser-download ZIP in memory. You can stop and start another export later. Leave <strong>Skip exported</strong> enabled to skip completed exports of the same format when their source conversations are unchanged; interrupted or changed conversations can be exported again. You may need to reauthorize the folder after restarting Chrome.</p></div>
-        </details>
-        <details>
-          <summary>Does Live Save work with Chrome closed?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>No. Choose <strong>Save to local folder</strong>, select Markdown and enable <strong>Live Save</strong>. The extension updates the authorized folder when Gemini finishes a reply during active browsing.</p></div>
-        </details>
-        <details>
-          <summary>Can I export images and attachments?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>When you choose to include attachments, the exporter saves images and files that the source platform still makes accessible. Some generated images or uploaded files can expire or become unavailable, in which case they cannot be reconstructed. The extension reports detected resource problems rather than pretending a partial export is complete.</p></div>
-        </details>
-        <details>
-          <summary>Are my chats uploaded to your servers?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>No. The extension uses your signed-in Gemini session and processes exports in your browser. It does not send your conversation contents to a developer-operated server. No exporter account or API key is needed. You can review the <a href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">source code</a> and <a href="/privacy" target="_blank" rel="noopener noreferrer">privacy policy</a>.</p></div>
-        </details>
-        <details>
-          <summary>Does it support other AI platforms?<span class="faq-plus" aria-hidden="true">+</span></summary>
-          <div class="faq-answer"><p>The <strong>published Chrome extension currently supports Google Gemini</strong>. ChatGPT, Claude, and Grok support is being developed and may be available experimentally in source builds. We don't present those integrations as released until they are ready for general use.</p></div>
-        </details>
+        <details><summary>Is Gemini Exporter free?<span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>Yes. It is free and open source, with no subscription or exporter account required.</p></div></details>
+        <details><summary>Can I export all my Gemini conversations?<span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>Yes, for the conversations accessible to your account. Sync All discovers your history; Export selected creates files. If the online list is incomplete, an official <a href="/import-google-takeout-gemini">Takeout ZIP</a> can supplement it.</p></div></details>
+        <details><summary>Does automatic backup work after Chrome is closed?<span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>No. Live Save updates Markdown in an authorized local folder during active browsing.</p></div></details>
+        <details><summary>Can I include images and attachments?<span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>Yes, when the original files remain accessible. Expired resources cannot be reconstructed. See <a href="/examples">sample exports</a>.</p></div></details>
+        <details><summary>Does it support ChatGPT, Claude or Grok?<span class="faq-plus" aria-hidden="true">+</span></summary><div class="faq-answer"><p>The published extension supports Gemini. Other platform integrations are experimental in source builds.</p></div></details>
       </div>
     </section>
-
-    <div class="home-install wrap" aria-label="Install Gemini Exporter">
-      <a data-store-cta class="button button-primary" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=footer" target="_blank" rel="noopener noreferrer">Add to Chrome <span aria-hidden="true">↗</span></a>
-    </div>
+    <section class="final-cta wrap" aria-label="Install Gemini Exporter"><h2>Keep the conversations that matter.</h2><a data-store-cta class="button button-primary" href="https://chromewebstore.google.com/detail/ldpbiafkgjlaooeplkiooljccpalpkgf?utm_source=otlfrosta.com&amp;utm_medium=website&amp;utm_campaign=footer" target="_blank" rel="noopener noreferrer">Add to Chrome<span aria-hidden="true">↗</span></a></section>
   </main>
-
-  <footer class="footer wrap">
-    <div class="footer-line">
-      <span class="footer-brand">Gemini Exporter<span class="brand-dot">.</span></span>
-      <div class="footer-links">
-        <a href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">Source</a>
-        <a href="/privacy">Extension privacy</a>
-        <a href="/website-privacy">Website privacy</a>
-        <a href="https://github.com/OTLFrostA/gemini-exporter/blob/main/docs/USER_GUIDE.md" target="_blank" rel="noopener noreferrer">Guide</a>
-      </div>
+  <footer class="footer product-footer wrap">
+    <div class="product-footer-main">
+      <a class="brand" href="/"><img class="brand-icon" src="/assets/icon.png" width="28" height="28" alt=""><span>Gemini Exporter</span></a>
+      <div class="product-footer-links"><a href="/features">Features</a><a href="/examples">Examples</a><a href="/guides">Guides</a><a href="/changelog">Changelog</a><a href="https://github.com/OTLFrostA/gemini-exporter" target="_blank" rel="noopener noreferrer">GitHub</a><a href="/privacy">Extension privacy</a><a href="/website-privacy">Website privacy</a></div>
     </div>
-    <p>Website analytics: cookie-free Cloudflare (EU visits excluded) and optional Google Analytics.</p>
-    <p>Independent project. Not affiliated with Google.</p>
-    <p><button class="analytics-settings" type="button" data-analytics-settings hidden>Analytics preferences</button></p>
+    <div class="product-footer-meta"><span>Independent open-source project. Not affiliated with Google.</span><button class="analytics-settings" type="button" data-analytics-settings hidden>Analytics preferences</button></div>
   </footer>
   <aside class="analytics-consent" data-analytics-consent hidden aria-label="Optional website analytics">
     <strong>Optional website analytics</strong>
