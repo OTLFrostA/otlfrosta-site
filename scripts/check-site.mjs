@@ -183,6 +183,11 @@ check(read("index.html").match(/data-store-cta/g)?.length >= 3, "Expected naviga
 check(read("index.html").includes('class="preview-image" src="/assets/workbench.png"'), "Homepage should show the actual Workbench in the hero");
 check(read("styles.css").includes("color-scheme:light"), "Shared CSS must use a light color scheme");
 check(!read("index.html").includes('class="feature-story"') && !read("index.html").includes('class="trust-row'), "Homepage should not repeat feature and trust sections");
+const homepage = read("index.html");
+for (const id of ["single-chat","live-save","bulk-export","takeout-import","export-formats","attachments","incremental","delivery","catalog","local-privacy","interface"]) {
+  check(homepage.includes('id="' + id + '"'), "Missing homepage capability: " + id);
+}
+check(homepage.includes('/assets/quick-export-popup.png'), "Homepage should show the real single-chat popup");
 
 // Cloudflare auto-injection uses both the plain and versioned beacon URLs.
 const scriptSrc = headers.match(/script-src ([^;]+)/)?.[1].split(/\s+/) ?? [];
