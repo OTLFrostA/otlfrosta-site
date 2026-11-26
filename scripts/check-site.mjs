@@ -190,7 +190,7 @@ check(homepage.includes("/demo/pdf-preview.png"), "Homepage requires an actual r
 check(read("styles.css").includes("color-scheme:light"), "Shared CSS must use a light color scheme");
 for (const id of ["tour-quick","tour-bulk","tour-live","use-cases","features","live-save","how-it-works","faq"]) check(homepage.includes('id="' + id + '"'), "Missing product workflow: " + id);
 for (const tab of ["tour-quick","tour-bulk","tour-live"]) check(homepage.includes('for="' + tab + '"') && homepage.includes('id="' + tab + '"'), "Tour radio and label must match: " + tab);
-for (const file of ["solar-energy.pdf","solar-energy.md","solar-energy-html.zip","solar-energy.json","solar-energy.zip"]) check(read("examples.html").includes("/demo/"+file), "Missing example download: "+file);
+for (const file of ["solar-energy.pdf","solar-energy.docx","solar-energy.md","solar-energy-html.zip","solar-energy.json","solar-energy.zip"]) check(read("examples.html").includes("/demo/"+file), "Missing example download: "+file);
 
 // Cloudflare auto-injection uses both the plain and versioned beacon URLs.
 const scriptSrc = headers.match(/script-src ([^;]+)/)?.[1].split(/\s+/) ?? [];

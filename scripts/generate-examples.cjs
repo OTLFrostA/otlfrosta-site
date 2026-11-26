@@ -13,6 +13,8 @@ const out = path.resolve(process.argv[3] || 'public/demo');
 const load = (file) => require(path.join(root, file));
 const { historicalFixture } = load('tests/helpers/nativeFixture.js');
 const { composeFixture } = load('tests/helpers/documentFixture.js');
+const { renderDocumentDocx } = load('src/l4/format/docx/renderDocx.js');
+const JSZip = load('lib/jszip.min.js');
 const { renderDocumentHtml } = load('src/l4/format/html/renderHtml.js');
 const { renderDocumentMarkdown } = load('src/l4/format/markdown/renderMarkdown.js');
 const { serializeDomainJson } = load('src/l4/format/json/serializeDomainJson.js');
@@ -108,6 +110,14 @@ async function main() {
   for(const needle of ['gem-table','gem-code-block','gem-math','gem-image-block']) assert(html.html.includes(needle),'Missing HTML content '+needle);
   assert(md.includes('daily_energy') && md.includes('daily-output.png') && md.includes('daily-output.csv'),'Markdown omitted sample content');
   assert.equal(JSON.parse(json).format,'gemini-exporter-domain');
+  const prepared = new Map(Object.entries(resources).map(([id,relative])=>[id,{ok:true,resourceId:id,value:{bytes:store[id],mediaType:relative.endsWith('.png')?'image/png':'text/csv'}}]));
+  const word = Buffer.from(await renderDocumentDocx(document,resources,prepared,{locale:'en'}));
+  const wordZip = await JSZip.loadAsync(word);
+  const wordXml = await wordZip.file('word/document.xml').async('string');
+  assert(wordXml.includes('daily_energy') && wordXml.includes('<w:tbl>'),'Word lost sample code or table');
+  assert(Object.keys(wordZip.files).some(name=>name.startsWith('word/media/') && name.endsWith('.png')),'Word lost the sample image');
+  assert(wordXml.includes('<m:oMath'),'Word lost native mathematical notation');
+  console.log('Generated genuine sample DOCX with native math, table and image.');
   const {payload,diagnostics}=renderTypstFixture(document,resources,{locale:'en',convertMath:convertMathForTest});
   const compiler=new TypstSandboxCompiler({host:new RealWasmSandboxHost(root)});
   let pdf;
@@ -125,13 +135,13 @@ async function main() {
     console.log('Generated genuine sample PDF: '+proof.pageCount+' pages, '+proof.imageXObjectCount+' image XObjects.');
   } finally {compiler.dispose();}
   try {
-    for(const [name,value] of Object.entries({'solar-energy.pdf':pdf,'solar-energy.md':md,'solar-energy.html':html.html,'solar-energy.json':json})) write(name,value);
-    for(const ext of ['pdf','md','json']) fs.copyFileSync(path.join(stage,'solar-energy.'+ext),path.join(out,'solar-energy.'+ext));
+    for(const [name,value] of Object.entries({'solar-energy.pdf':pdf,'solar-energy.docx':word,'solar-energy.md':md,'solar-energy.html':html.html,'solar-energy.json':json})) write(name,value);
+    for(const ext of ['pdf','docx','md','json']) fs.copyFileSync(path.join(stage,'solar-energy.'+ext),path.join(out,'solar-energy.'+ext));
     const resourcePaths=Object.values(resources);
-    execFileSync('zip',['-q',path.join(out,'solar-energy.zip'),'solar-energy.pdf','solar-energy.md','solar-energy.html','solar-energy.json',...resourcePaths],{cwd:stage});
+    execFileSync('zip',['-q',path.join(out,'solar-energy.zip'),'solar-energy.pdf','solar-energy.docx','solar-energy.md','solar-energy.html','solar-energy.json',...resourcePaths],{cwd:stage});
     execFileSync('zip',['-q',path.join(out,'solar-energy-html.zip'),'solar-energy.html',...resourcePaths],{cwd:stage});
     execFileSync('pdftoppm',['-f','1','-l','1','-singlefile','-scale-to','1188','-png',path.join(out,'solar-energy.pdf'),path.join(out,'pdf-preview')]);
-    fs.writeFileSync(path.join(out,'provenance.json'),JSON.stringify({version,sourceCommit: '67c7dc5eb5e4d1cac2a8cf0171bf684b1474b152',input:'synthetic website demonstration',renderers:['PDF','Markdown','HTML','JSON'],resourceCount:Object.keys(store).length},null,2)+'\n');
+    fs.writeFileSync(path.join(out,'provenance.json'),JSON.stringify({version,sourceCommit: '67c7dc5eb5e4d1cac2a8cf0171bf684b1474b152',input:'synthetic website demonstration',renderers:['PDF','Word','Markdown','HTML','JSON'],resourceCount:Object.keys(store).length},null,2)+'\n');
   } finally {fs.rmSync(stage,{recursive:true,force:true});}
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});

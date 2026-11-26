@@ -6,12 +6,12 @@ A static, privacy-preserving landing page managed in this standalone repository 
 
 - **Home**: interactive quick-export, bulk-export and Live Save previews; product stories organized around export, history backup, automatic saving and privacy.
 - **Features**: complete published capabilities grouped by user workflow.
-- **Examples**: real PDF, Markdown, HTML and JSON from one synthetic conversation, with downloadable attachment bundle.
+- **Examples**: real PDF, Word, Markdown, HTML and JSON from one synthetic conversation, with downloadable attachment bundle.
 - **Guides**: index of the existing search-intent pages.
 - **Changelog**: GitHub release history, clearly distinguishing the Chrome Web Store version.
 - **Privacy**: unchanged extension and website policies.
 
-Demo assets are generated in the unprivileged validation job from the pinned published extension commit `67c7dc5eb5e4d1cac2a8cf0171bf684b1474b152` (v2.1.1). The actual L4 renderers and Typst WASM produce four file formats from synthetic inputs; the extension's existing anonymous README screenshot test captures the actual UI in sandboxed Chromium with outbound requests blocked. The validated assets are cached and passed to the deployment job as an artifact. No real user chats, account credentials, deployment secrets or test identities are used. Do not replace actual sample outputs with manually composed look-alikes. To regenerate for a future release, update the pinned source, script, assertions, cache key, release notes, and advertised feature set together.
+Demo assets are generated in the unprivileged validation job from the pinned published extension commit `67c7dc5eb5e4d1cac2a8cf0171bf684b1474b152` (v2.1.1). The actual L4 renderers and Typst WASM produce five file formats from synthetic inputs; the extension's existing anonymous README screenshot test captures the actual UI in sandboxed Chromium with outbound requests blocked. The validated assets are cached and passed to the deployment job as an artifact. No real user chats or account credentials are used; the validation job does not have deployment secrets. The release source exposes five formats including Word; the screenshot fixture's stale four-format assertion is updated only in the temporary checkout, not the product UI. Do not replace actual sample outputs with manually composed look-alikes. To regenerate for a future release, update the pinned source, script, assertions, cache key, release notes, and advertised feature set together.
 
 ## Search-intent guides
 
@@ -20,9 +20,9 @@ Demo assets are generated in the unprivileged validation job from the pinned pub
 | `/export-all-gemini-chats` | `public/export-all-gemini-chats.html` | Bulk export all chats, skip completed exports |
 | `/import-google-takeout-gemini` | `public/import-google-takeout-gemini.html` | Import official Google Takeout ZIP, convert archives |
 | `/automatic-gemini-chat-backup` | `public/automatic-gemini-chat-backup.html` | Set up local Markdown Live Save |
-| `/export-gemini-chat-formats` | `public/export-gemini-chat-formats.html` | Compare and export PDF, Markdown, HTML, JSON |
+| `/export-gemini-chat-formats` | `public/export-gemini-chat-formats.html` | Compare and export PDF, Word, Markdown, HTML, JSON |
 
-These are useful how-to pages, **not claims of support for unshipped features**. Published Chrome Web Store support is Gemini; other platform integrations are experimental. Live Save writes Markdown only, and only during active browser use with local-folder permissions. Attachment availability is conditional; scanning alone does not create a backup. Do not copy Extry's product claims (e.g. independent archive index, Word/Excel export, server typeset PDF) into Gemini Exporter without implementation and verification.
+These are useful how-to pages, **not claims of support for unshipped features**. Published Chrome Web Store support is Gemini; other platform integrations are experimental. Live Save writes Markdown only, and only during active browser use with local-folder permissions. Attachment availability is conditional; scanning alone does not create a backup. Do not copy Extry's product claims (e.g. independent archive index, Excel export, server typeset PDF) into Gemini Exporter without implementation and verification.
 
 The light visual system is shared through `public/styles.css`, `public/product.css` and `public/guides.css`, with no external libraries or fonts. Each page must keep a unique title, meta description, self canonical URL, OG metadata, semantic headings, relevant Workbench terminology, internal links, privacy claims and honest limitations. When adding a page, link it from the homepage/other guides and add it to `public/sitemap.xml`. Keep `public/_headers`, privacy pages and `public/utm.js` behavior intact. Each guide's Chrome Web Store CTA carries a page-specific default `utm_campaign` while preserving validated inbound campaign parameters.
 
